@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бриф на разработку сайта или автоматизацию — LandingPro</title>
+<meta name="description" content="Заполните бриф на разработку сайта, лендинга, AI-бота или автоматизацию бизнес-процессов. LandingPro — создание сайтов и автоматизация для бизнеса в Беларуси.">
+<link rel="canonical" href="https://landingpro.by/brief.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f8f9fb;--card:#fff;--tx:#1a1a2e;--mt:#6b7280;--pri:#2563eb;--pri-lt:#eff6ff;--grn:#16a34a;--bd:#e5e7eb;--input-bg:#f9fafb}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:40px 24px 100px}
+
+/* SCROLL PROGRESS */
+.brief-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--pri),#0891b2);z-index:100;pointer-events:none;box-shadow:0 0 8px rgba(37,99,235,0.4)}
+
+/* STEP INDICATOR */
+.step-indicator{position:fixed;top:20px;right:20px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--pri);z-index:99;box-shadow:0 2px 8px rgba(0,0,0,0.06);opacity:0}
+
+/* HEADER */
+.hdr{text-align:center;padding:40px 0 32px;border-bottom:1px solid var(--bd);margin-bottom:40px}
+.hdr h1{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.hdr h1 span{background:linear-gradient(135deg,#2563eb,#0891b2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr p{font-size:15px;color:var(--mt);max-width:480px;margin:0 auto}
+.hdr-note{margin-top:16px;display:inline-block;background:var(--pri-lt);color:var(--pri);font-size:13px;font-weight:600;padding:6px 16px;border-radius:8px}
+
+/* SECTIONS */
+.sec{margin-bottom:40px}
+.sec-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--pri);color:#fff;font-size:13px;font-weight:700;margin-bottom:10px}
+.sec h2{font-size:20px;font-weight:700;margin-bottom:6px}
+.sec-desc{font-size:14px;color:var(--mt);margin-bottom:20px}
+
+/* FORM ELEMENTS */
+.field{margin-bottom:20px}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)}
+.field label .req{color:#dc2626;margin-left:2px}
+.field .hint{font-size:12px;color:var(--mt);margin-bottom:6px}
+
+input[type="text"],input[type="email"],input[type="tel"],input[type="url"],textarea,select{
+  width:100%;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;font-size:14px;
+  font-family:inherit;background:var(--input-bg);color:var(--tx);transition:.2s;outline:none
+}
+input:focus,textarea:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+textarea{resize:vertical;min-height:80px}
+select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+
+/* ROW */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+
+/* CHECKBOXES */
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chk{position:relative}
+.chk input{position:absolute;opacity:0;pointer-events:none}
+.chk span{display:inline-block;padding:8px 16px;border:1.5px solid var(--bd);border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;transition:.2s;background:var(--card);user-select:none}
+.chk input:checked+span{border-color:var(--pri);background:var(--pri-lt);color:var(--pri);font-weight:600}
+.chk span:hover{border-color:var(--pri);background:var(--pri-lt)}
+
+/* CARD */
+.card{background:var(--card);border-radius:14px;padding:24px;border:1px solid var(--bd);box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:24px}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--bd);margin:40px 0}
+
+/* SUBMIT */
+.submit-area{text-align:center;padding:32px 0}
+.btn-submit{background:var(--pri);color:#fff;border:none;padding:14px 40px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:.2s;box-shadow:0 4px 14px rgba(37,99,235,.3);will-change:transform}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+.btn-submit:active{transform:translateY(0)}
+
+/* PRINT */
+@media print{
+  body{background:#fff}
+  .wrap{padding:20px}
+  .btn-submit,.submit-area .hint{display:none}
+  .card{box-shadow:none;border:1px solid #ddd}
+  .brief-progress,.step-indicator{display:none}
+}
+</style>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106991612', 'ym');
+    ym(106991612, 'init', {ssr:true, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106991612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="brief-progress" id="briefProgress"></div>
+
+<!-- Step indicator -->
+<div class="step-indicator" id="stepIndicator">Шаг 1 / 8</div>
+
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <h1>Бриф <span>на проект</span></h1>
+  <p>Заполните анкету — это поможет точно оценить объём работы, сроки и стоимость. Чем подробнее ответы, тем точнее результат.</p>
+  <div class="hdr-note">Заполнение ~10 минут</div>
+</div>
+
+<form id="briefForm">
+
+<!-- 1. КОМПАНИЯ -->
+<div class="sec" data-step="1">
+  <div class="sec-num">1</div>
+  <h2>О компании</h2>
+  <div class="sec-desc">Базовая информация для понимания бизнеса</div>
+
+  <div class="card">
+    <div class="field">
+      <label>Название компании / бренд <span class="req">*</span></label>
+      <input type="text" name="company" placeholder="ООО «Компания»" required>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Контактное лицо <span class="req">*</span></label>
+        <input type="text" name="contact_name" placeholder="Имя" required>
+      </div>
+      <div class="field">
+        <label>Телефон <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="email@company.by">
+      </div>
+      <div class="field">
+        <label>Текущий сайт (если есть)</label>
+        <input type="url" name="current_site" placeholder="https://probox.by">
+      </div>
+    </div>
+    <div class="field">
+      <label>Чем занимается компания? <span class="req">*</span></label>
+      <div class="hint">В 2-3 предложениях: что продаёте/производите, кому, география</div>
+      <textarea name="about" rows="3" placeholder="Продаём/производим ... для ... по всей Беларуси" required></textarea>
+    </div>
+    <div class="field">
+      <label>Соцсети и мессенджеры</label>
+      <div class="hint">Instagram, Telegram, TikTok, WhatsApp — всё что используете</div>
+      <input type="text" name="socials" placeholder="@company (Instagram), +375... (Telegram)">
+    </div>
+  </div>
+</div>
+
+<!-- 2. ЦЕЛИ -->
+<div class="sec" data-step="2">
+  <div class="sec-num">2</div>
+  <h2>Цели и задачи</h2>
+  <div class="sec-desc">Что нужно сделать для вашего бизнеса</div>
+
+  <div class="card">
+    <div class="field">
+      <label>Тип проекта <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="project_type" value="site" onchange="toggleSections()"><span>Сайт / лендинг</span></label>
+        <label class="chk"><input type="checkbox" name="project_type" value="shop" onchange="toggleSections()"><span>Интернет-магазин</span></label>
+        <label class="chk"><input type="checkbox" name="project_type" value="automation" onchange="toggleSections()"><span>Автоматизация</span></label>
+        <label class="chk"><input type="checkbox" name="project_type" value="bot" onchange="toggleSections()"><span>Чат-бот / AI-бот</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Зачем нужен сайт? <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="goal" value="catalog"><span>Показать каталог товаров</span></label>
+        <label class="chk"><input type="checkbox" name="goal" value="leads"><span>Получать заявки</span></label>
+        <label class="chk"><input type="checkbox" name="goal" value="sales"><span>Продавать онлайн (оплата на сайте)</span></label>
+        <label class="chk"><input type="checkbox" name="goal" value="brand"><span>Имидж / доверие</span></label>
+        <label class="chk"><input type="checkbox" name="goal" value="info"><span>Информация для клиентов</span></label>
+        <label class="chk"><input type="checkbox" name="goal" value="seo"><span>Привлечение из Google / Яндекс</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что не устраивает в текущем сайте?</label>
+      <textarea name="current_problems" rows="3" placeholder="Медленный, устаревший дизайн, неудобно обновлять товары, не приходят заявки..."></textarea>
+    </div>
+    <div class="field">
+      <label>Кто ваши клиенты? <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="audience" value="b2b"><span>Юрлица (B2B)</span></label>
+        <label class="chk"><input type="checkbox" name="audience" value="b2c"><span>Физлица (B2C)</span></label>
+        <label class="chk"><input type="checkbox" name="audience" value="both"><span>И те, и другие</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Как клиенты сейчас находят вас?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="source" value="phone"><span>Звонят</span></label>
+        <label class="chk"><input type="checkbox" name="source" value="instagram"><span>Instagram</span></label>
+        <label class="chk"><input type="checkbox" name="source" value="site"><span>Через сайт</span></label>
+        <label class="chk"><input type="checkbox" name="source" value="referral"><span>Сарафан</span></label>
+        <label class="chk"><input type="checkbox" name="source" value="search"><span>Google / Яндекс</span></label>
+        <label class="chk"><input type="checkbox" name="source" value="other"><span>Другое</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. КАТАЛОГ -->
+<div class="sec sec-site" data-step="3">
+  <div class="sec-num">3</div>
+  <h2>Каталог и товары</h2>
+  <div class="sec-desc">Структура и объём ассортимента</div>
+
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Сколько товаров? <span class="req">*</span></label>
+        <select name="products_count" required>
+          <option value="">Выберите</option>
+          <option value="1-20">1–20</option>
+          <option value="20-50">20–50</option>
+          <option value="50-100">50–100</option>
+          <option value="100-300">100–300</option>
+          <option value="300+">300+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Сколько категорий?</label>
+        <select name="categories_count">
+          <option value="">Выберите</option>
+          <option value="1-5">1–5</option>
+          <option value="5-15">5–15</option>
+          <option value="15-30">15–30</option>
+          <option value="30+">30+</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Какие характеристики у товаров?</label>
+      <div class="hint">Что важно показать клиенту на карточке товара</div>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="attrs" value="size"><span>Размеры (Д×Ш×В)</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="weight"><span>Вес / нагрузка</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="material"><span>Материал</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="color"><span>Цвет</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="price"><span>Цена на сайте</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="photos"><span>Фото</span></label>
+        <label class="chk"><input type="checkbox" name="attrs" value="docs"><span>Документы / сертификаты</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Цены на сайте?</label>
+      <select name="pricing">
+        <option value="">Выберите</option>
+        <option value="fixed">Фиксированные цены (как в магазине)</option>
+        <option value="from">Цены «от...» (от объёма)</option>
+        <option value="request">Цена по запросу</option>
+        <option value="mixed">Комбинация (часть фикс, часть по запросу)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Есть ли готовые фото товаров?</label>
+      <select name="photos">
+        <option value="">Выберите</option>
+        <option value="yes">Да, хорошего качества</option>
+        <option value="partial">Частично — нужна досъёмка</option>
+        <option value="no">Нет — нужна съёмка</option>
+        <option value="stock">Будем использовать фото от поставщиков</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Кто будет обновлять каталог?</label>
+      <div class="hint">Добавлять товары, менять цены, скрывать распроданное</div>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="manager" value="self"><span>Сами (нужна админка)</span></label>
+        <label class="chk"><input type="checkbox" name="manager" value="dev"><span>Разработчик</span></label>
+        <label class="chk"><input type="checkbox" name="manager" value="sheets"><span>Через Google Таблицу</span></label>
+        <label class="chk"><input type="checkbox" name="manager" value="1c"><span>Из 1С / учётной системы</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. ФУНКЦИОНАЛЬНОСТЬ -->
+<div class="sec" data-step="4">
+  <div class="sec-num">4</div>
+  <h2>Функциональность</h2>
+  <div class="sec-desc">Что должен уметь сайт</div>
+
+  <div class="card">
+    <div class="field">
+      <label>Обязательные функции</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="func" value="catalog"><span>Каталог с фильтрами</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="search"><span>Поиск по товарам</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="cart"><span>Корзина</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="order"><span>Оформление заказа</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="payment"><span>Онлайн-оплата</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="delivery_calc"><span>Калькулятор доставки</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="callback"><span>Форма обратной связи</span></label>
+        <label class="chk"><input type="checkbox" name="func" value="chat"><span>Онлайн-чат / AI-бот</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Дополнительные функции (по желанию)</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="func_extra" value="lk"><span>Личный кабинет</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="compare"><span>Сравнение товаров</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="favorites"><span>Избранное</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="reviews"><span>Отзывы</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="blog"><span>Блог / новости</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="multi_lang"><span>Мультиязычность</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="calculator"><span>Калькулятор объёма / количества</span></label>
+        <label class="chk"><input type="checkbox" name="func_extra" value="wholesale"><span>Оптовые цены (по количеству)</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Куда приходят заявки? <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="notify" value="telegram"><span>Telegram</span></label>
+        <label class="chk"><input type="checkbox" name="notify" value="email"><span>Email</span></label>
+        <label class="chk"><input type="checkbox" name="notify" value="whatsapp"><span>WhatsApp</span></label>
+        <label class="chk"><input type="checkbox" name="notify" value="crm"><span>CRM-система</span></label>
+        <label class="chk"><input type="checkbox" name="notify" value="1c"><span>1С</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Есть ли учётная система?</label>
+      <select name="erp">
+        <option value="">Выберите</option>
+        <option value="1c">1С</option>
+        <option value="other_erp">Другая учётная система</option>
+        <option value="excel">Excel / Google Таблицы</option>
+        <option value="none">Нет — всё вручную</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- 5. АВТОМАТИЗАЦИЯ -->
+<div class="sec sec-auto" data-step="5" style="display:none">
+  <div class="sec-num">5</div>
+  <h2>Автоматизация и боты</h2>
+  <div class="sec-desc">Что нужно автоматизировать</div>
+
+  <div class="card">
+    <div class="field">
+      <label>Что хотите автоматизировать? <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="auto_what" value="leads"><span>Обработка заявок</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="crm"><span>CRM / учёт клиентов</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="bot_tg"><span>Telegram-бот</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="bot_ig"><span>Instagram-бот</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="bot_wa"><span>WhatsApp-бот</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="ai_chat"><span>AI-чат на сайте</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="notifications"><span>Уведомления / рассылки</span></label>
+        <label class="chk"><input type="checkbox" name="auto_what" value="integration"><span>Интеграция систем</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Какие сервисы уже используете?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="auto_tools" value="google_sheets"><span>Google Таблицы</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="1c"><span>1С</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="bitrix"><span>Битрикс24</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="amocrm"><span>AmoCRM</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="telegram"><span>Telegram</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="instagram"><span>Instagram</span></label>
+        <label class="chk"><input type="checkbox" name="auto_tools" value="none"><span>Ничего — всё вручную</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Опишите задачу</label>
+      <div class="hint">Что сейчас делаете вручную и что хотели бы автоматизировать</div>
+      <textarea name="auto_task" rows="4" placeholder="Клиенты пишут в Instagram, я вручную отвечаю на одни и те же вопросы. Хочу бота, который квалифицирует заявки и передаёт мне готовых клиентов..."></textarea>
+    </div>
+    <div class="field">
+      <label>Примерный объём</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="auto_volume" value="small"><span>До 10 заявок/день</span></label>
+        <label class="chk"><input type="checkbox" name="auto_volume" value="medium"><span>10–50 заявок/день</span></label>
+        <label class="chk"><input type="checkbox" name="auto_volume" value="large"><span>50+ заявок/день</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. ДИЗАЙН -->
+<div class="sec sec-site" data-step="6">
+  <div class="sec-num">6</div>
+  <h2>Дизайн и стиль</h2>
+  <div class="sec-desc">Визуальные предпочтения</div>
+
+  <div class="card">
+    <div class="field">
+      <label>Какие сайты нравятся? (примеры)</label>
+      <div class="hint">Ссылки на 2-3 сайта, дизайн/функционал которых вам нравится. Не обязательно из вашей сферы.</div>
+      <textarea name="design_refs" rows="3" placeholder="https://example.com — нравится каталог&#10;https://example2.com — нравится стиль"></textarea>
+    </div>
+    <div class="field">
+      <label>Стиль дизайна</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="style" value="minimal"><span>Минимализм</span></label>
+        <label class="chk"><input type="checkbox" name="style" value="modern"><span>Современный</span></label>
+        <label class="chk"><input type="checkbox" name="style" value="corporate"><span>Корпоративный</span></label>
+        <label class="chk"><input type="checkbox" name="style" value="bright"><span>Яркий</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Есть ли брендбук / логотип?</label>
+      <select name="branding">
+        <option value="">Выберите</option>
+        <option value="full">Да, полный брендбук (лого, цвета, шрифты)</option>
+        <option value="logo">Только логотип</option>
+        <option value="nothing">Ничего — нужно разработать</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- 7. ТЕХНИЧЕСКОЕ -->
+<div class="sec" data-step="7">
+  <div class="sec-num">7</div>
+  <h2>Техническое</h2>
+  <div class="sec-desc">Домен, хостинг, интеграции</div>
+
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Домен (адрес сайта)</label>
+        <select name="domain">
+          <option value="">Выберите</option>
+          <option value="have">Есть свой домен</option>
+          <option value="need">Нужно купить</option>
+          <option value="change">Хочу другой домен</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Хостинг</label>
+        <select name="hosting">
+          <option value="">Выберите</option>
+          <option value="have">Есть свой</option>
+          <option value="need">Нужно подобрать</option>
+          <option value="any">Без разницы</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Нужна ли SEO-оптимизация?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="seo" value="basic"><span>Базовая (title, meta, скорость)</span></label>
+        <label class="chk"><input type="checkbox" name="seo" value="full"><span>Полная (семантика, тексты, ссылки)</span></label>
+        <label class="chk"><input type="checkbox" name="seo" value="no"><span>Не нужна</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Аналитика</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="analytics" value="metrika"><span>Яндекс.Метрика</span></label>
+        <label class="chk"><input type="checkbox" name="analytics" value="ga"><span>Google Analytics</span></label>
+        <label class="chk"><input type="checkbox" name="analytics" value="pixel"><span>Meta Pixel (Instagram/FB)</span></label>
+        <label class="chk"><input type="checkbox" name="analytics" value="no"><span>Не нужна</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. БЮДЖЕТ И СРОКИ -->
+<div class="sec" data-step="8">
+  <div class="sec-num">8</div>
+  <h2>Бюджет и сроки</h2>
+  <div class="sec-desc">Для точной оценки</div>
+
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Ориентировочный бюджет</label>
+        <select name="budget">
+          <option value="">Выберите</option>
+          <option value="500-1000">500–1 000 BYN</option>
+          <option value="1000-2000">1 000–2 000 BYN</option>
+          <option value="2000-4000">2 000–4 000 BYN</option>
+          <option value="4000+">4 000+ BYN</option>
+          <option value="discuss">Обсудим после оценки</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Желаемые сроки</label>
+        <select name="deadline">
+          <option value="">Выберите</option>
+          <option value="1week">Как можно скорее (1–2 недели)</option>
+          <option value="1month">В течение месяца</option>
+          <option value="2months">1–2 месяца</option>
+          <option value="no_rush">Не срочно</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что-то ещё?</label>
+      <div class="hint">Дополнительные пожелания, особенности, интеграции</div>
+      <textarea name="notes" rows="4" placeholder="Нужна интеграция с 1С, хотим оптовый прайс-лист для скачивания, важно чтобы..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-area">
+  <button type="button" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
+  <p class="hint" style="margin-top:12px;font-size:13px;color:var(--mt)">Ответ с оценкой — в течение 24 часов</p>
+</div>
+
+</form>
+
+<!-- SUCCESS -->
+<div id="success" style="display:none;text-align:center;padding:60px 0">
+  <div style="font-size:48px;margin-bottom:16px">&#10003;</div>
+  <h2 style="font-size:24px;font-weight:800;margin-bottom:12px">Бриф отправлен!</h2>
+  <p style="color:var(--mt);font-size:15px">Свяжемся в течение 24 часов с оценкой и предложением.</p>
+</div>
+
+</div>
+
+<script>
+function toggleSections(){
+  var checks=document.querySelectorAll('input[name="project_type"]:checked');
+  var types=[];
+  checks.forEach(function(c){types.push(c.value)});
+  var needSite=types.indexOf('site')!==-1||types.indexOf('shop')!==-1;
+  var needAuto=types.indexOf('automation')!==-1||types.indexOf('bot')!==-1;
+  document.querySelectorAll('.sec-site').forEach(function(s){s.style.display=needSite?'':'none'});
+  document.querySelectorAll('.sec-auto').forEach(function(s){s.style.display=needAuto?'':'none'});
+  renumberSteps();
+}
+function renumberSteps(){
+  var visible=document.querySelectorAll('.sec:not([style*="display: none"])');
+  var n=0;
+  visible.forEach(function(s){
+    n++;
+    var num=s.querySelector('.sec-num');
+    if(num)num.textContent=n;
+    s.setAttribute('data-step',n);
+  });
+  var ind=document.getElementById('stepIndicator');
+  if(ind)ind.textContent=ind.textContent.replace(/\/ \d+/,'/ '+n);
+}
+
+function collectData(){
+  var f=document.getElementById('briefForm');
+  var raw={};
+  /* Text inputs & textareas */
+  f.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],textarea').forEach(function(el){
+    if(el.name&&el.value)raw[el.name]=el.value;
+  });
+  /* Selects — берём отображаемый текст, не value */
+  f.querySelectorAll('select').forEach(function(el){
+    if(el.name&&el.value)raw[el.name]=el.options[el.selectedIndex].text;
+  });
+  /* Checkboxes — берём текст из <span>, не value */
+  var groups={};
+  f.querySelectorAll('input[type="checkbox"]:checked').forEach(function(el){
+    if(!groups[el.name])groups[el.name]=[];
+    var span=el.nextElementSibling;
+    groups[el.name].push(span?span.textContent:el.value);
+  });
+  for(var k in groups)raw[k]=groups[k].join(', ');
+  /* Фиксированный порядок полей */
+  var order=['company','contact_name','phone','email','current_site','about','socials',
+    'project_type','goal','current_problems','audience','source',
+    'products_count','categories_count','attrs','pricing','photos','manager',
+    'func','func_extra','notify','erp',
+    'auto_what','auto_tools','auto_task','auto_volume',
+    'design_refs','style','branding',
+    'domain','hosting','seo','analytics',
+    'budget','deadline','notes'];
+  var data={};
+  order.forEach(function(k){if(raw[k])data[k]=raw[k]});
+  return data;
+}
+
+function formatMessage(data){
+  var lines=['\u{1F4CB} *БРИФ НА ПРОЕКТ*',''];
+  var labels={
+    company:'Компания',contact_name:'Контакт',phone:'Телефон',email:'Email',
+    current_site:'Текущий сайт',about:'О компании',socials:'Соцсети',
+    project_type:'Тип проекта',
+    goal:'Цели',current_problems:'Проблемы текущего сайта',audience:'Аудитория',source:'Каналы привлечения',
+    products_count:'Кол-во товаров',categories_count:'Категории',attrs:'Характеристики товаров',
+    pricing:'Ценообразование',photos:'Фото товаров',manager:'Кто обновляет',
+    func:'Функции',func_extra:'Доп. функции',notify:'Куда заявки',erp:'Учётная система',
+    auto_what:'Что автоматизировать',auto_tools:'Текущие сервисы',auto_task:'Описание задачи',auto_volume:'Объём',
+    design_refs:'Референсы',style:'Стиль',branding:'Брендбук',
+    domain:'Домен',hosting:'Хостинг',seo:'SEO',analytics:'Аналитика',
+    budget:'Бюджет',deadline:'Сроки',notes:'Дополнительно'
+  };
+  /* Разделители по секциям */
+  var sections={project_type:'\n━━ ЦЕЛИ ━━',products_count:'\n━━ КАТАЛОГ ━━',
+    func:'\n━━ ФУНКЦИИ ━━',auto_what:'\n━━ АВТОМАТИЗАЦИЯ ━━',
+    design_refs:'\n━━ ДИЗАЙН ━━',domain:'\n━━ ТЕХНИЧЕСКОЕ ━━',budget:'\n━━ БЮДЖЕТ ━━'};
+  for(var k in data){
+    if(sections[k])lines.push(sections[k]);
+    var label=labels[k]||k;
+    lines.push('*'+label+':* '+data[k]);
+  }
+  return lines.join('\n');
+}
+
+function sendBrief(){
+  var data=collectData();
+  if(!data.company||!data.phone||!data.contact_name){
+    alert('Заполните обязательные поля: компания, контакт, телефон');
+    return;
+  }
+  var btn=document.querySelector('.btn-submit');
+  btn.textContent='Отправляем...';
+  btn.disabled=true;
+  btn.style.opacity='.6';
+
+  var text=formatMessage(data).replace(/\*/g,'');
+  var payload={
+    name: data.contact_name||'Бриф',
+    phone: data.phone||'\u2014',
+    email: data.email||'\u2014',
+    company: data.company||'\u2014',
+    message: text
+  };
+
+  fetch('https://emikss.host/webhook/fc-lead',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(r){return r.json()}).then(function(){
+    ym(106991612,'reachGoal','submit_brief');
+    showBriefSuccess();
+  }).catch(function(){
+    ym(106991612,'reachGoal','submit_brief');
+    if(navigator.clipboard){navigator.clipboard.writeText(text)}
+    showBriefSuccess();
+  });
+}
+
+function showBriefSuccess(){
+  var form = document.getElementById('briefForm');
+  var success = document.getElementById('success');
+  if(typeof gsap !== 'undefined'){
+    gsap.to(form, { opacity: 0, y: -20, duration: 0.4, onComplete: function(){
+      form.style.display='none';
+      success.style.display='block';
+      gsap.fromTo(success, { opacity: 0, scale: 0.9, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.5)' });
+    }});
+  } else {
+    form.style.display='none';
+    success.style.display='block';
+  }
+}
+
+/* ===== GSAP ANIMATIONS ===== */
+(function(){
+  if(typeof gsap === 'undefined') return;
+  if(typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* --- Scroll progress bar --- */
+  var progressBar = document.getElementById('briefProgress');
+  if(progressBar){
+    gsap.to(progressBar, {
+      width: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3
+      }
+    });
+  }
+
+  /* --- Header entrance --- */
+  var hdrTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  hdrTL
+    .from('.hdr h1', { opacity: 0, y: 30, duration: 0.8 })
+    .from('.hdr p', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+    .from('.hdr-note', { opacity: 0, scale: 0.8, duration: 0.5, ease: 'back.out(2)' }, '-=0.2');
+
+  /* --- Step indicator show on scroll --- */
+  var stepIndicator = document.getElementById('stepIndicator');
+  ScrollTrigger.create({
+    trigger: '.sec[data-step="1"]',
+    start: 'top 80%',
+    onEnter: function(){ gsap.to(stepIndicator, { opacity: 1, y: 0, duration: 0.4 }); },
+    onLeaveBack: function(){ gsap.to(stepIndicator, { opacity: 0, y: -10, duration: 0.3 }); }
+  });
+
+  /* --- Track current step --- */
+  document.querySelectorAll('.sec[data-step]').forEach(function(sec){
+    ScrollTrigger.create({
+      trigger: sec,
+      start: 'top 50%',
+      end: 'bottom 50%',
+      onEnter: function(){
+        var total=document.querySelectorAll('.sec:not([style*="display: none"])').length;stepIndicator.textContent = '\u0428\u0430\u0433 ' + sec.getAttribute('data-step') + ' / ' + total;
+      },
+      onEnterBack: function(){
+        var total=document.querySelectorAll('.sec:not([style*="display: none"])').length;stepIndicator.textContent = '\u0428\u0430\u0433 ' + sec.getAttribute('data-step') + ' / ' + total;
+      }
+    });
+  });
+
+  /* --- Section reveal animations --- */
+  document.querySelectorAll('.sec').forEach(function(sec){
+    var secNum = sec.querySelector('.sec-num');
+    var secH2 = sec.querySelector('h2');
+    var secDesc = sec.querySelector('.sec-desc');
+    var secCard = sec.querySelector('.card');
+    var checks = sec.querySelectorAll('.chk');
+
+    ScrollTrigger.create({
+      trigger: sec,
+      start: 'top 85%',
+      once: true,
+      onEnter: function(){
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        /* Section number — pop in with rotation */
+        if(secNum){
+          tl.fromTo(secNum,
+            { opacity: 0, scale: 0, rotation: -90 },
+            { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(2)' }
+          );
+        }
+
+        /* Title slide in */
+        if(secH2){
+          tl.fromTo(secH2,
+            { opacity: 0, x: -30 },
+            { opacity: 1, x: 0, duration: 0.5 },
+            '-=0.2'
+          );
+        }
+
+        /* Description */
+        if(secDesc){
+          tl.fromTo(secDesc,
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.4 },
+            '-=0.2'
+          );
+        }
+
+        /* Card slide up */
+        if(secCard){
+          tl.fromTo(secCard,
+            { opacity: 0, y: 30, scale: 0.97 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.6 },
+            '-=0.2'
+          );
+        }
+
+        /* Checkboxes stagger pop */
+        if(checks.length > 0){
+          tl.fromTo(checks,
+            { opacity: 0, scale: 0.85, y: 10 },
+            { opacity: 1, scale: 1, y: 0, stagger: 0.04, duration: 0.35, ease: 'back.out(1.5)' },
+            '-=0.3'
+          );
+        }
+      }
+    });
+  });
+
+  /* --- Submit button entrance --- */
+  ScrollTrigger.create({
+    trigger: '.submit-area',
+    start: 'top 90%',
+    once: true,
+    onEnter: function(){
+      gsap.fromTo('.btn-submit',
+        { opacity: 0, y: 20, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.5)' }
+      );
+    }
+  });
+
+  /* --- Magnetic submit button --- */
+  var submitBtn = document.querySelector('.btn-submit');
+  if(submitBtn){
+    submitBtn.addEventListener('mousemove', function(e){
+      var rect = submitBtn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width/2;
+      var y = e.clientY - rect.top - rect.height/2;
+      gsap.to(submitBtn, { x: x * 0.2, y: y * 0.2, duration: 0.3, ease: 'power2.out' });
+    });
+    submitBtn.addEventListener('mouseleave', function(){
+      gsap.to(submitBtn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+    });
+  }
+
+  /* --- Checkbox click micro-animation --- */
+  document.querySelectorAll('.chk input').forEach(function(input){
+    input.addEventListener('change', function(){
+      var span = this.nextElementSibling;
+      if(this.checked){
+        gsap.fromTo(span, { scale: 0.92 }, { scale: 1, duration: 0.3, ease: 'back.out(3)' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

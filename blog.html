@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Блог LandingPro — статьи о создании сайтов и автоматизации бизнеса</title>
+<meta name="description" content="Полезные статьи о веб-разработке, автоматизации бизнеса, чат-ботах и digital-инструментах. Практические советы от LandingPro.">
+<link rel="canonical" href="https://landingpro.by/blog.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%230891b2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='28' height='28' rx='7' stroke='url(%23g)' stroke-width='2.5'/%3E%3Cpath d='M10 8v16h12' stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='22' cy='8' r='2.5' fill='url(%23g)'/%3E%3C/svg%3E">
+
+<meta property="og:title" content="Блог LandingPro — статьи о создании сайтов и автоматизации">
+<meta property="og:description" content="Полезные статьи о веб-разработке, автоматизации бизнеса, чат-ботах и digital-инструментах.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://landingpro.by/blog.html">
+<meta property="og:locale" content="ru_BY">
+<meta property="og:site_name" content="LandingPro">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--bg-alt:#f8fafc;--bg-card:#ffffff;
+  --tx:#0f172a;--tx-muted:#64748b;--tx-dim:#94a3b8;
+  --pri:#3b82f6;--pri2:#0891b2;
+  --bd:#e2e8f0;--bd-hover:#cbd5e1;
+  --radius:12px;--radius-lg:20px;
+  --ease:cubic-bezier(.4,0,.2,1);--dur:.3s;
+  --container:900px;
+  --shadow-sm:0 1px 3px rgba(15,23,42,.06);
+  --shadow-md:0 4px 6px -1px rgba(15,23,42,.07),0 2px 4px -2px rgba(15,23,42,.05);
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Header */
+.header{border-bottom:1px solid var(--bd);padding:16px 0;background:var(--bg)}
+.header .container{display:flex;align-items:center;justify-content:space-between;max-width:var(--container);margin:0 auto;padding:0 24px}
+.logo{font-weight:800;font-size:1.25rem;color:var(--tx);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-text{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav{display:flex;align-items:center;gap:1.5rem}
+.nav a{color:var(--tx-muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color var(--dur)}
+.nav a:hover{color:var(--tx)}
+.nav a.active{color:var(--pri);font-weight:600}
+
+/* Breadcrumbs */
+.breadcrumbs{max-width:var(--container);margin:0 auto;padding:1.5rem 24px .5rem;font-size:.8125rem;color:var(--tx-dim)}
+.breadcrumbs a{color:var(--tx-muted);text-decoration:none}
+.breadcrumbs a:hover{color:var(--pri)}
+
+/* Blog hero */
+.blog-hero{max-width:var(--container);margin:0 auto;padding:2rem 24px 3rem;text-align:center}
+.blog-hero h1{font-size:clamp(2rem,4vw,2.75rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem}
+.blog-hero h1 span{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.blog-hero p{color:var(--tx-muted);font-size:1.0625rem;max-width:550px;margin:0 auto}
+
+/* Articles grid */
+.articles{max-width:var(--container);margin:0 auto;padding:0 24px 4rem;display:grid;gap:1.5rem}
+
+.article-card{display:grid;grid-template-columns:1fr;background:var(--bg-card);border:1px solid var(--bd);border-radius:var(--radius-lg);padding:2rem;transition:all var(--dur);text-decoration:none;color:inherit}
+.article-card:hover{border-color:var(--bd-hover);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.article-meta{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;font-size:.8125rem;color:var(--tx-dim)}
+.article-tag{background:rgba(59,130,246,.08);color:var(--pri);padding:.25rem .625rem;border-radius:6px;font-weight:600;font-size:.75rem}
+.article-card h2{font-size:1.375rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em;line-height:1.3}
+.article-card p{color:var(--tx-muted);font-size:.9375rem;line-height:1.7}
+.article-read{display:inline-flex;align-items:center;gap:.375rem;color:var(--pri);font-weight:600;font-size:.875rem;margin-top:1rem;transition:gap var(--dur)}
+.article-card:hover .article-read{gap:.625rem}
+
+/* Footer */
+.footer{background:#0f172a;color:#f1f5f9;padding:2rem 0}
+.footer .container{max-width:var(--container);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.footer-text{color:rgba(255,255,255,.4);font-size:.8125rem}
+.footer a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8125rem}
+.footer a:hover{color:#fff}
+
+@media(max-width:640px){
+  .article-card{padding:1.5rem}
+  .article-card h2{font-size:1.125rem}
+  .header .container{flex-wrap:wrap;gap:.75rem}
+  .footer .container{flex-direction:column;gap:.75rem;text-align:center}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Блог LandingPro",
+  "description": "Статьи о создании сайтов, автоматизации бизнеса и digital-инструментах",
+  "url": "https://landingpro.by/blog.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LandingPro",
+    "url": "https://landingpro.by"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0891b2"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="7" stroke="url(#lg)" stroke-width="2.5" fill="none"/><path d="M10 8v16h12" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="22" cy="8" r="2.5" fill="url(#lg)"/></svg>
+      <span class="logo-text">LandingPro</span>
+    </a>
+    <nav class="nav">
+      <a href="/">Главная</a>
+      <a href="/blog.html" class="active">Блог</a>
+      <a href="/brief.html">Бриф</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumbs">
+  <a href="/">Главная</a> / Блог
+</div>
+
+<div class="blog-hero">
+  <h1>Блог <span>LandingPro</span></h1>
+  <p>Пишем о создании сайтов, автоматизации и digital-инструментах. Без воды, только практика.</p>
+</div>
+
+<div class="articles">
+
+  <a href="/blog/zakazat-sajt-minsk.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">Разработка</span>
+        <span>25 февраля 2026</span>
+        <span>9 мин чтения</span>
+      </div>
+      <h2>Заказать сайт в Минске — как выбрать исполнителя и не пожалеть</h2>
+      <p>Фрилансер, студия или агентство? Сравниваем цены, сроки и риски. Чек-лист перед заказом и красные флаги, которые помогут не потерять деньги.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+  <a href="/blog/internet-magazin-pod-klyuch.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">E-commerce</span>
+        <span>25 февраля 2026</span>
+        <span>8 мин чтения</span>
+      </div>
+      <h2>Интернет-магазин под ключ — что входит, сколько стоит и как не прогадать</h2>
+      <p>Конструктор, CMS или кастомная разработка? Разбираем, что входит в «под ключ», сравниваем цены от 200 до 15 000 BYN и частые ошибки владельцев.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+  <a href="/blog/sajt-vizitka.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">Разработка</span>
+        <span>25 февраля 2026</span>
+        <span>7 мин чтения</span>
+      </div>
+      <h2>Сайт-визитка — что это, кому подходит и сколько стоит в 2026</h2>
+      <p>Кому нужна сайт-визитка, чем она отличается от лендинга, сколько стоит и что обязательно должно быть на странице. Честный разбор с ценами.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+  <a href="/blog/skolko-stoit-sajt.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">Разработка</span>
+        <span>25 февраля 2026</span>
+        <span>8 мин чтения</span>
+      </div>
+      <h2>Сколько стоит сайт в 2026 году — честный разбор цен</h2>
+      <p>Разбираемся, из чего складывается цена сайта, почему разброс от 500 до 15 000 BYN, и на чём можно сэкономить, а на чём точно не стоит.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+  <a href="/blog/avtomatizaciya-biznesa.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">Автоматизация</span>
+        <span>25 февраля 2026</span>
+        <span>7 мин чтения</span>
+      </div>
+      <h2>Автоматизация бизнеса — с чего начать и как не потратить бюджет впустую</h2>
+      <p>Что реально можно автоматизировать в малом бизнесе, сколько это стоит, и какие ошибки совершают чаще всего. Конкретные примеры и пошаговый план.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+  <a href="/blog/chat-bot-dlya-biznesa.html" class="article-card">
+    <div>
+      <div class="article-meta">
+        <span class="article-tag">Чат-боты</span>
+        <span>25 февраля 2026</span>
+        <span>7 мин чтения</span>
+      </div>
+      <h2>Чат-бот для бизнеса — кому нужен, а кому пока рано</h2>
+      <p>Честно разбираемся: когда бот реально помогает бизнесу, а когда это пустая трата денег. Типы ботов, платформы, стоимость и процесс создания.</p>
+      <span class="article-read">Читать статью &rarr;</span>
+    </div>
+  </a>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-text">&copy; 2026 LandingPro</span>
+    <a href="/">На главную</a>
+  </div>
+</footer>
+
+</body>
+</html>
