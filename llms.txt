@@ -8,14 +8,21 @@
 - Стек: HTML, Tailwind CSS, Vercel, n8n, Claude AI
 
 ## Услуги
-- [Создание лендингов](https://landingpro.by/#services): Продающие одностраничные сайты с SEO-оптимизацией — от 800 BYN
-- [Корпоративные сайты](https://landingpro.by/#services): Многостраничные сайты для бизнеса с CMS — от 1500 BYN
-- [AI-автоматизация](https://landingpro.by/#services): Внедрение AI-инструментов в бизнес-процессы — чат-боты, автоответы, аналитика
+- [Создание лендингов](https://landingpro.by/#services): Продающие одностраничные сайты с SEO-оптимизацией — от 390 BYN
+- [Корпоративные сайты](https://landingpro.by/#services): Многостраничные сайты для бизнеса — от 1200 BYN
+- [AI-автоматизация](https://landingpro.by/#services): Чат-боты, автоответы, аналитика — от 490 BYN
 
 ## Портфолио
 - [Кронберг Грузоперевозки](https://gruzoperevozki-kronberg.vercel.app): Лендинг для транспортной компании
 - [First Class Travel](https://fclass.by): Корпоративный туризм
 - [LUE Expedition](https://lue.world): Кайт-экспедиция
+
+## Блог (актуальные материалы)
+- [AI-чатбот для бизнеса: как автоматизировать продажи в 2026 году](https://landingpro.by/blog/ai-chatbot-dlya-biznesa-2026.html): Стоимость от 490 BYN, план запуска за 2 недели, 3 кейса
+- [Сколько стоит лендинг в Минске в 2026 году](https://landingpro.by/blog/stoimost-lendinga-minsk-2026.html): Сравнение цен 7 студий
+- [AI чат-бот для бизнеса в Беларуси](https://landingpro.by/blog/ai-chatbot-for-business-2026.html): Зачем нужен и сколько стоит
+- [Telegram бот для бизнеса 2026](https://landingpro.by/blog/telegram-bot-for-business.html): Автоматизация продаж и поддержки
+- [Создание сайтов в Минске — полный гид](https://landingpro.by/blog/sozdanie-sajtov-minsk.html): Виды, цены, этапы
 
 ## Процесс работы
 1. Бриф и анализ конкурентов
