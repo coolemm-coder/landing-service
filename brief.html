@@ -96,8 +96,37 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/106991612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<style>
+.header{border-bottom:1px solid #e2e8f0;padding:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.header .inner{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1e293b;font-weight:700;font-size:1.125rem}
+.logo svg{color:#3b82f6}
+.logo-text{letter-spacing:-.01em}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:#64748b;text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#3b82f6}
+.nav-cta{background:#3b82f6!important;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:background .2s!important}
+.nav-cta:hover{background:#2563eb!important}
+@media(max-width:640px){.nav-links{gap:1rem}.nav-links a{font-size:.8rem}.header .inner{padding:12px 16px}}
+</style>
+
 </head>
 <body>
+<header class="header">
+  <div class="inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0891b2"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="7" stroke="url(#lg)" stroke-width="2.5" fill="none"/><path d="M10 8v16h12" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="22" cy="8" r="2.5" fill="url(#lg)"/></svg>
+      <span class="logo-text">LandingPro</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Главная</a>
+      <a href="/blog.html">Блог</a>
+      <a href="/brief.html" class="nav-cta active">Оставить заявку</a>
+    </nav>
+  </div>
+</header>
+
 
 <!-- Scroll progress bar -->
 <div class="brief-progress" id="briefProgress"></div>
@@ -114,7 +143,12 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   <div class="hdr-note">Заполнение ~10 минут</div>
 </div>
 
-<form id="briefForm">
+<form id="briefForm" action="https://formsubmit.co/ecoprofit.em@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Новый бриф с LandingPro.by">
+<input type="hidden" name="_next" value="https://landingpro.by/brief.html?sent=1">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
 
 <!-- 1. КОМПАНИЯ -->
 <div class="sec" data-step="1">
@@ -513,7 +547,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
 
 <!-- SUBMIT -->
 <div class="submit-area">
-  <button type="button" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
+  <button type="submit" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
   <p class="hint" style="margin-top:12px;font-size:13px;color:var(--mt)">Ответ с оценкой — в течение 24 часов</p>
 </div>
 
@@ -632,7 +666,7 @@ function sendBrief(){
     message: text
   };
 
-  fetch('https://emikss.host/webhook/fc-lead',{
+  fetch('https://emikss.host/webhook/landingpro-brief',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload)
@@ -813,5 +847,17 @@ function showBriefSuccess(){
   });
 })();
 </script>
+
+<script>
+if (window.location.search.includes('sent=1')) {
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('briefForm');
+    if (form) {
+      form.innerHTML = '<div style="text-align:center;padding:60px 20px;"><h2 style="color:#16a34a;margin-bottom:16px;">✅ Бриф отправлен!</h2><p style="color:#64748b;font-size:1.1rem;margin-bottom:24px;">Спасибо! Мы получили ваш бриф и свяжемся с вами в ближайшее время.</p><a href="/" style="color:#3b82f6;font-weight:600;">← Вернуться на главную</a></div>';
+    }
+  });
+}
+</script>
+
 </body>
 </html>
