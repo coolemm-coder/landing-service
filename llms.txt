@@ -18,11 +18,14 @@
 - [LUE Expedition](https://lue.world): Кайт-экспедиция
 
 ## Блог (актуальные материалы)
-- [AI-чатбот для бизнеса: как автоматизировать продажи в 2026 году](https://landingpro.by/blog/ai-chatbot-dlya-biznesa-2026.html): Стоимость от 490 BYN, план запуска за 2 недели, 3 кейса
-- [Сколько стоит лендинг в Минске в 2026 году](https://landingpro.by/blog/stoimost-lendinga-minsk-2026.html): Сравнение цен 7 студий
-- [AI чат-бот для бизнеса в Беларуси](https://landingpro.by/blog/ai-chatbot-for-business-2026.html): Зачем нужен и сколько стоит
-- [Telegram бот для бизнеса 2026](https://landingpro.by/blog/telegram-bot-for-business.html): Автоматизация продаж и поддержки
-- [Создание сайтов в Минске — полный гид](https://landingpro.by/blog/sozdanie-sajtov-minsk.html): Виды, цены, этапы
+- [AI-агенты для бизнеса 2026](https://landingpro.by/blog/ai-agents-business-2026.html): Автономные AI-агенты для автоматизации бизнес-процессов
+- [AI-автоматизация малого бизнеса](https://landingpro.by/blog/ai-avtomatizatsiya-malogo-biznesa-2026.html): Практическое руководство 2026
+- [AI-чатбот для бизнеса](https://landingpro.by/blog/ai-chatbot-dlya-biznesa-2026.html): Как автоматизировать продажи
+- [n8n автоматизация бизнеса](https://landingpro.by/blog/n8n-avtomatizatsiya-biznesa-2026.html): No-code платформа для автоматизации
+- [Корпоративный сайт Минск](https://landingpro.by/blog/korporativnyy-sayt-minsk-2026.html): Полный гид по созданию
+- [Сколько стоит лендинг в Минске](https://landingpro.by/blog/stoimost-lendinga-minsk-2026.html): Сравнение цен 2026
+- [Чат-бот для бизнеса](https://landingpro.by/blog/chat-bot-dlya-biznesa.html): Что умеют, сколько стоят
+- [Создание сайтов в Минске](https://landingpro.by/blog/sozdanie-sajtov-minsk.html): Полный гид
 
 ## Процесс работы
 1. Бриф и анализ конкурентов
