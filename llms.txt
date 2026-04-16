@@ -18,11 +18,14 @@
 - [LUE Expedition](https://lue.world): Кайт-экспедиция
 
 ## Блог (актуальные материалы)
+- [SEO-продвижение сайта в 2026: GEO, AEO и новые правила](https://landingpro.by/blog/seo-prodvizhenie-sajta-2026.html): GEO/AEO оптимизация, E-E-A-T, AI Overviews, llms.txt — практический чек-лист
 - [AI-агенты для бизнеса 2026](https://landingpro.by/blog/ai-agents-business-2026.html): Автономные AI-агенты для автоматизации бизнес-процессов
 - [AI-автоматизация малого бизнеса](https://landingpro.by/blog/ai-avtomatizatsiya-malogo-biznesa-2026.html): Практическое руководство 2026
 - [AI-чатбот для бизнеса](https://landingpro.by/blog/ai-chatbot-dlya-biznesa-2026.html): Как автоматизировать продажи
 - [n8n автоматизация бизнеса](https://landingpro.by/blog/n8n-avtomatizatsiya-biznesa-2026.html): No-code платформа для автоматизации
 - [Корпоративный сайт Минск](https://landingpro.by/blog/korporativnyy-sayt-minsk-2026.html): Полный гид по созданию
+- [Tilda vs разработка с нуля](https://landingpro.by/blog/tilda-vs-razrabotka-s-nulya.html): Сравнение подходов для бизнеса в Беларуси
+- [Интернет-магазин под ключ](https://landingpro.by/blog/internet-magazin-pod-klyuch.html): Что входит, сколько стоит
 - [Сколько стоит лендинг в Минске](https://landingpro.by/blog/stoimost-lendinga-minsk-2026.html): Сравнение цен 2026
 - [Чат-бот для бизнеса](https://landingpro.by/blog/chat-bot-dlya-biznesa.html): Что умеют, сколько стоят
 - [Создание сайтов в Минске](https://landingpro.by/blog/sozdanie-sajtov-minsk.html): Полный гид
