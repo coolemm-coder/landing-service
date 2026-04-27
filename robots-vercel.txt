@@ -1,0 +1,7 @@
+# This file is served only on *.vercel.app preview/staging domains via vercel.json rewrite.
+# The production site landingpro.by is hosted in Belarus (Beltelecom 93.84.119.241) and uses /robots.txt directly.
+User-agent: *
+Disallow: /
+
+# Hint to consolidate signals to the canonical production host
+Host: https://landingpro.by
