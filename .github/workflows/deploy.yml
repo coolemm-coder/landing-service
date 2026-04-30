@@ -1,12 +1,14 @@
 name: Deploy to landingpro.by
 
-# Этот workflow заменяет сломанный landingpro-deploy-sync (sandbox blocked).
-# Триггерится на push в main → автодеплой на cPanel FTP за ~30 секунд.
-
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      debug_only:
+        description: 'Run only diagnostics, no upload'
+        required: false
+        default: 'false'
 
 concurrency:
   group: ftp-deploy-lp
@@ -20,41 +22,43 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: FTP Sync
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: \${{ secrets.LP_FTP_HOST }}
-          username: \${{ secrets.LP_FTP_USERNAME }}
-          password: \${{ secrets.LP_FTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          local-dir: ./
-          server-dir: public_html/
-          state-name: .ftp-deploy-sync-state.json
-          log-level: standard
-          dry-run: false
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.github/**/*
-            **/node_modules/**
-            **/.env
-            **/.env.*
-            **/.DS_Store
-            **/CLAUDE.md
-            **/README.md
-            **/PROJECT_LOG.md
-            **/ROADMAP.md
-            **/VISION.md
-            **/.ftp-deploy-sync-state.json
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y lftp curl
 
-      - name: Verify deploy
+      - name: Diagnose FTP connection
+        env:
+          FTP_HOST: \${{ secrets.LP_FTP_HOST }}
+          FTP_USER: \${{ secrets.LP_FTP_USERNAME }}
+          FTP_PASS: \${{ secrets.LP_FTP_PASSWORD }}
         run: |
-          echo "Deploy completed at \$(date -u)"
-          echo "Verifying live URLs..."
+          echo "=== Secret lengths ==="
+          echo "HOST length: \${#FTP_HOST}"
+          echo "USER length: \${#FTP_USER}"
+          echo "PASS length: \${#FTP_PASS}"
+          echo ""
+          echo "=== Public IP of runner ==="
+          curl -s https://api.ipify.org
+          echo ""
+          echo ""
+          echo "=== DNS resolve ==="
+          getent hosts "\$FTP_HOST" || echo "DNS failed"
+          echo ""
+          echo "=== Try plain FTP via curl ==="
+          curl -sS --connect-timeout 15 --max-time 30 -v "ftp://\$FTP_USER:\$FTP_PASS@\$FTP_HOST/" 2>&1 | grep -E '^[<>*]' | head -25 || true
+
+      - name: Upload via lftp
+        if: \${{ github.event.inputs.debug_only != 'true' }}
+        env:
+          FTP_HOST: \${{ secrets.LP_FTP_HOST }}
+          FTP_USER: \${{ secrets.LP_FTP_USERNAME }}
+          FTP_PASS: \${{ secrets.LP_FTP_PASSWORD }}
+        run: |
+          lftp -u "\$FTP_USER","\$FTP_PASS" -e "set ftp:ssl-allow no; set net:timeout 30; set net:max-retries 3; mirror -R --delete-first --exclude='\.git/' --exclude='\.github/' --exclude='node_modules/' --exclude='\.env' --exclude='CLAUDE\.md' --exclude='README\.md' --exclude='ROADMAP\.md' --exclude='VISION\.md' ./ public_html/; bye" "\$FTP_HOST"
+
+      - name: Verify
+        if: success()
+        run: |
           for path in "/" "/landings/" "/blog/" "/sitemap.xml" "/robots.txt"; do
-            STATUS=\$(curl -s -o /dev/null -w "%{http_code}" "https://landingpro.by\${path}")
-            echo "  \${path} -> HTTP \${STATUS}"
+            STATUS=\$(curl -s -o /dev/null -w "%{http_code}" "https://landingpro.by\$path")
+            echo "  \$path -> HTTP \$STATUS"
           done
