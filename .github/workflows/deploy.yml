@@ -1,0 +1,60 @@
+name: Deploy to landingpro.by
+
+# Этот workflow заменяет сломанный landingpro-deploy-sync (sandbox blocked).
+# Триггерится на push в main → автодеплой на cPanel FTP за ~30 секунд.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ftp-deploy-lp
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: FTP Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP Sync
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: \${{ secrets.LP_FTP_HOST }}
+          username: \${{ secrets.LP_FTP_USERNAME }}
+          password: \${{ secrets.LP_FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: public_html/
+          state-name: .ftp-deploy-sync-state.json
+          log-level: standard
+          dry-run: false
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.github/**/*
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/.DS_Store
+            **/CLAUDE.md
+            **/README.md
+            **/PROJECT_LOG.md
+            **/ROADMAP.md
+            **/VISION.md
+            **/.ftp-deploy-sync-state.json
+
+      - name: Verify deploy
+        run: |
+          echo "Deploy completed at \$(date -u)"
+          echo "Verifying live URLs..."
+          for path in "/" "/landings/" "/blog/" "/sitemap.xml" "/robots.txt"; do
+            STATUS=\$(curl -s -o /dev/null -w "%{http_code}" "https://landingpro.by\${path}")
+            echo "  \${path} -> HTTP \${STATUS}"
+          done
