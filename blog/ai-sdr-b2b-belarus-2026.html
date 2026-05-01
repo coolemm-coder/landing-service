@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI SDR для B2B в Беларуси 2026: автоматизация лидгена и холодной рассылки — LandingPro</title>
     <meta name="description" content="Как автоматизировать генерацию B2B-лидов и холодную рассылку через AI SDR в 2026 году. Практический стек для белорусских компаний: n8n + Claude + Apollo + Telegram, реальные метрики.">
+    <meta name="keywords" content="">
+    <meta name="author" content="LandingPro">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://landingpro.by/blog/ai-sdr-b2b-belarus-2026.html">
     <meta property="og:title" content="AI SDR для B2B в Беларуси 2026: автоматизация лидгена">
@@ -23,52 +25,74 @@
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafc; color: #1a202c; line-height: 1.8; }
-        .nav { background: #0f172a; padding: 12px 24px; text-align: center; }
-        .nav a { color: #94a3b8; text-decoration: none; margin: 0 16px; font-size: 14px; }
-        .nav a:hover { color: #fff; }
-        .hero { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); color: #fff; padding: 48px 24px; text-align: center; }
-        .hero .tag { display: inline-block; background: rgba(37,99,235,0.2); color: #60a5fa; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
-        .hero h1 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 12px; line-height: 1.3; }
-        .hero .meta { font-size: 14px; color: #94a3b8; }
-        .breadcrumbs { max-width: 720px; margin: 0 auto; padding: 16px 24px 0; font-size: 13px; color: #94a3b8; }
-        .breadcrumbs a { color: #2563eb; text-decoration: none; }
-        .article { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
-        .article h2 { font-size: 24px; font-weight: 700; margin: 40px 0 16px; color: #0f172a; }
-        .article h3 { font-size: 18px; font-weight: 600; margin: 28px 0 12px; color: #1e3a5f; }
-        .article p { margin-bottom: 16px; color: #374151; font-size: 16px; }
-        .article ul, .article ol { margin: 0 0 16px 24px; color: #374151; }
-        .article li { margin-bottom: 6px; }
-        .article a { color: #2563eb; }
-        .info-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        .warn-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        .info-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 15px; }
-        .info-table th { background: #0f172a; color: #fff; padding: 12px 16px; text-align: left; font-size: 13px; }
-        .info-table td { padding: 10px 16px; border-bottom: 1px solid #e5e7eb; }
-        .info-table tr:hover { background: #f8fafc; }
-        .cta-section { background: #0f172a; border-radius: 12px; padding: 32px; text-align: center; color: #fff; margin: 40px 0; }
-        .cta-section h3 { font-size: 22px; margin-bottom: 10px; }
-        .cta-section p { color: #94a3b8; margin-bottom: 16px; }
-        .cta-btn { display: inline-block; background: #2563eb; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-        .footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; }
-        .footer a { color: #2563eb; text-decoration: none; }
-        .code-block { background: #0f172a; color: #e5e7eb; padding: 16px 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px; overflow-x: auto; margin: 16px 0; line-height: 1.5; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1e293b; background: #ffffff; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+        .breadcrumb { font-size: 14px; color: #64748b; margin-bottom: 20px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .meta { font-size: 14px; color: #64748b; margin-bottom: 30px; }
+        h1 { font-size: 32px; line-height: 1.3; margin-bottom: 16px; color: #0f172a; }
+        h2 { font-size: 24px; margin: 40px 0 16px; color: #0f172a; }
+        h3 { font-size: 20px; margin: 30px 0 12px; color: #0f172a; }
+        p { margin-bottom: 16px; font-size: 17px; }
+        .lead { font-size: 19px; color: #334155; margin-bottom: 30px; }
+        .highlight { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 8px; margin: 24px 0; }
+        .highlight p { margin-bottom: 0; }
+        .accent { background: #ecfeff; border-left: 4px solid #0891b2; padding: 20px; border-radius: 8px; margin: 24px 0; }
+        .accent p { margin-bottom: 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 15px; }
+        th { background: #f8fafc; font-weight: 600; color: #0f172a; }
+        .cta { background: linear-gradient(135deg, #3b82f6, #0891b2); color: white; padding: 30px; border-radius: 12px; margin: 40px 0; text-align: center; }
+        .cta h3 { color: white; margin-top: 0; }
+        .cta a { color: white; background: rgba(255,255,255,0.2); padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 12px; font-weight: 600; }
+        .case { background: #f8fafc; padding: 24px; border-radius: 12px; margin: 20px 0; border: 1px solid #e2e8f0; }
+        .case h4 { font-size: 18px; margin-bottom: 8px; color: #3b82f6; }
+        .faq-item { margin: 20px 0; }
+        .faq-item h3 { font-size: 18px; color: #3b82f6; }
+        .updated { font-size: 13px; color: #94a3b8; margin-top: 40px; }
+        ul { margin: 12px 0 16px 24px; }
+        li { margin-bottom: 8px; font-size: 16px; }
+        a { color: #3b82f6; }
+        .header { border-bottom: 1px solid #e2e8f0; padding: 0; background: rgba(255,255,255,.92); position: sticky; top: 0; z-index: 100; }
+        .header .inner { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 14px 24px; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1e293b; font-weight: 700; font-size: 1.125rem; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: #64748b; text-decoration: none; font-size: .875rem; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: #3b82f6; }
+        .nav-cta { background: #3b82f6 !important; color: #fff !important; padding: 8px 20px; border-radius: 8px; font-weight: 600 !important; }
+        .footer { text-align: center; padding: 32px 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+        .footer a { color: #3b82f6; text-decoration: none; }
+        blockquote { border-left: 3px solid #3b82f6; padding-left: 16px; margin: 16px 0; color: #475569; font-style: italic; }
+        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0; }
+        pre code { background: none; padding: 0; color: inherit; }
     </style>
 </head>
 <body>
-<nav class="nav">
-    <a href="https://landingpro.by/">Главная</a>
-    <a href="https://landingpro.by/blog/" style="color:#fff;">Блог</a>
-    <a href="https://landingpro.by/#contacts">Контакты</a>
-</nav>
-<div class="hero">
-    <span class="tag">AI Automation</span>
-    <h1>AI SDR для B2B в Беларуси 2026: автоматизация лидгена и холодной рассылки</h1>
-    <div class="meta">22 апреля 2026 · 10 мин чтения</div>
-</div>
-<div class="breadcrumbs"><a href="/">Главная</a> / <a href="/blog/">Блог</a> / AI SDR для B2B 2026</div>
-<article class="article">
-    <p>В 2026 году B2B-продажи окончательно уходят в автоматизацию. Джун-менеджер в СНГ обходится компании минимум в 600–900 USD в месяц и выдаёт 30–50 контактов с квалификацией в день. AI SDR — автоматическая система на базе Claude API + n8n + Apollo.io — выдаёт 200–300 квалифицированных контактов в день со стоимостью 80–150 USD в месяц, работая 24/7 без больничных. В этой статье — практический стек для белорусской компании, который мы собрали в LandingPro и применяем у клиентов.</p>
+    <header class="header">
+      <div class="inner">
+        <a href="/" class="logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0891b2"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="7" stroke="url(#lg)" stroke-width="2.5" fill="none"/><path d="M10 8v16h12" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="22" cy="8" r="2.5" fill="url(#lg)"/></svg>
+          <span>LandingPro</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/">Главная</a>
+          <a href="/blog/" class="active">Блог</a>
+          <a href="/brief.html" class="nav-cta">Оставить заявку</a>
+        </nav>
+      </div>
+    </header>
+
+    <article class="container">
+        <nav class="breadcrumb">
+            <a href="https://landingpro.by">Главная</a> → <a href="https://landingpro.by/blog/">Блог</a> → AI SDR для B2B в Беларуси 2026: автоматизация лидгена и холодной рассылки
+        </nav>
+        <h1>AI SDR для B2B в Беларуси 2026: автоматизация лидгена и холодной рассылки</h1>
+        <div class="meta">
+            <time datetime="2026-04-22">22 апреля 2026</time> · LandingPro
+        </div>
+
+<p>В 2026 году B2B-продажи окончательно уходят в автоматизацию. Джун-менеджер в СНГ обходится компании минимум в 600–900 USD в месяц и выдаёт 30–50 контактов с квалификацией в день. AI SDR — автоматическая система на базе Claude API + n8n + Apollo.io — выдаёт 200–300 квалифицированных контактов в день со стоимостью 80–150 USD в месяц, работая 24/7 без больничных. В этой статье — практический стек для белорусской компании, который мы собрали в LandingPro и применяем у клиентов.</p>
 
     <h2>Что такое AI SDR и зачем он B2B-бизнесу</h2>
     <p>SDR (Sales Development Representative) — сотрудник на входе в отдел продаж: находит лиды, обогащает данные, пишет первые письма, проводит квалификационные звонки. В классическом найме это самое дорогое и выгорающее звено: текучка 12–18 месяцев, постоянное обучение, KPI по объёму писем с низкой персонализацией.</p>
@@ -79,11 +103,11 @@
         <li><strong>Квалификация первого ответа</strong> — автомат читает ответ, определяет намерение (интерес / отказ / автоответ / вопрос) и маршрутизирует в CRM или менеджеру</li>
     </ul>
 
-    <div class="info-box"><strong>Главный принцип:</strong> AI SDR не заменяет человека, а снимает с него рутину. Менеджер включается только на этапе «лид ответил содержательно» — это 5–10% всех контактов, но именно они ведут к сделкам.</div>
+    <div ><strong>Главный принцип:</strong> AI SDR не заменяет человека, а снимает с него рутину. Менеджер включается только на этапе «лид ответил содержательно» — это 5–10% всех контактов, но именно они ведут к сделкам.</div>
 
     <h2>Стек AI SDR для белорусской компании</h2>
 
-    <table class="info-table">
+    <table >
         <tr><th>Слой</th><th>Инструмент</th><th>Стоимость</th></tr>
         <tr><td>Оркестрация</td><td>n8n (self-hosted)</td><td>VPS 10–20 USD/мес</td></tr>
         <tr><td>Источник лидов</td><td>Apollo.io или Lusha</td><td>от 50 USD/мес</td></tr>
@@ -108,7 +132,7 @@
     <h3>Шаг 3. Обогащение и персональные хуки</h3>
     <p>Для каждого лида собирается «досье»: последняя новость компании (через RSS или Google News API), изменения в стеке (через BuiltWith или Wappalyzer), посты лида в LinkedIn. Эта информация передаётся AI-модели как контекст.</p>
 
-    <div class="code-block">
+    <div >
 // n8n workflow пример — передача промпта в Claude API
 POST https://api.anthropic.com/v1/messages
 {
@@ -122,7 +146,7 @@ POST https://api.anthropic.com/v1/messages
     <p>Claude получает структурированный промпт с пятью обязательными блоками: приветствие с именем, конкретный хук из досье (1 предложение), предложение пользы (2 предложения), мягкий CTA (вопрос, а не «купите»), подпись с данными отправителя. Длина — 60–90 слов, один абзац.</p>
     <p>Почему именно такая структура: Google и Mail.ru классифицируют длинные HTML-письма от неизвестных адресатов как спам. Короткий plain-text от реального домена с рабочим SPF/DKIM/DMARC обходит фильтры и даёт доставляемость 85–92%.</p>
 
-    <div class="warn-box"><strong>Частая ошибка:</strong> использовать «wow-факты» и восклицательные знаки. AI без контроля генерирует маркетинговый слог, который моментально палится получателем. Лучше — сухо, по делу, как пишут друг другу коллеги из разных компаний.</div>
+    <div ><strong>Частая ошибка:</strong> использовать «wow-факты» и восклицательные знаки. AI без контроля генерирует маркетинговый слог, который моментально палится получателем. Лучше — сухо, по делу, как пишут друг другу коллеги из разных компаний.</div>
 
     <h3>Шаг 5. Отправка и отслеживание</h3>
     <p>Письма уходят пачками по 30–50 в час с одного ящика (лимит Mail.ru Business) или 100–150 через SendGrid/Mailgun. Отслеживается: открытие (через tracking pixel), ответ (через IMAP poll каждые 5 минут), отказ от рассылки (по клику на unsubscribe-ссылку).</p>
@@ -132,7 +156,7 @@ POST https://api.anthropic.com/v1/messages
 
     <h2>Реальные метрики у наших клиентов</h2>
 
-    <table class="info-table">
+    <table >
         <tr><th>Метрика</th><th>Значение</th></tr>
         <tr><td>Отправлено писем в месяц</td><td>500–1500</td></tr>
         <tr><td>Доставляемость (inbox, не спам)</td><td>85–92%</td></tr>
@@ -148,12 +172,12 @@ POST https://api.anthropic.com/v1/messages
     <p>B2B-рассылка по корпоративным адресам (info@, sales@, hello@ либо прямые корп. email сотрудников) в Беларуси регулируется Законом Республики Беларусь от 10 мая 2007 г. №225-З «О рекламе». Три главных требования: (1) в каждом письме — возможность отказаться от дальнейших писем (unsubscribe-ссылка), (2) честное указание отправителя и компании, (3) предмет письма соответствует содержимому.</p>
     <p>Рассылка физическим лицам без предварительного согласия запрещена. Поэтому AI SDR работает только с корпоративными адресами, а не с персональными gmail/yandex почтами сотрудников.</p>
 
-    <div class="info-box"><strong>Практика:</strong> добавляйте в подпись УНП и юридический адрес компании — это снижает риск попадания в спам-фильтры у Mail.ru и Yandex, так как подтверждает реальность отправителя.</div>
+    <div ><strong>Практика:</strong> добавляйте в подпись УНП и юридический адрес компании — это снижает риск попадания в спам-фильтры у Mail.ru и Yandex, так как подтверждает реальность отправителя.</div>
 
-    <div class="cta-section">
+    <div >
         <h3>Нужен AI SDR под ваш B2B?</h3>
         <p>Настроим n8n-workflow с Claude API, интеграцией с Apollo.io и вашей CRM. Первые результаты за 2 недели.</p>
-        <a href="/brief.html" class="cta-btn">Обсудить проект</a>
+        <a href="/brief.html" >Обсудить проект</a>
     </div>
 
     <h2>Часто задаваемые вопросы</h2>
@@ -173,14 +197,17 @@ POST https://api.anthropic.com/v1/messages
     <h3>Что делать с данными, если лид ответил?</h3>
     <p>Ответ = триггер для ручного вмешательства. AI SDR останавливает последовательность, пересылает диалог в Telegram менеджеру и создаёт сделку в CRM. Менеджер ведёт контакт до сделки, автоматика возвращается на этап follow-up.</p>
 
-    <div class="cta-section">
+    <div >
         <h3>Готовы запустить AI SDR?</h3>
         <p>Расскажите о вашем B2B-рынке — предложим стек и расчёт ROI за 24 часа.</p>
-        <a href="/brief.html" class="cta-btn">Получить расчёт</a>
+        <a href="/brief.html" >Получить расчёт</a>
     </div>
-</article>
-<footer class="footer">
-    &copy; 2026 <a href="https://landingpro.by">LandingPro</a> — создание сайтов и AI-автоматизация для бизнеса в Минске · <a href="mailto:info@landingpro.by">info@landingpro.by</a>
-</footer>
+
+        <p class="updated">Обновлено: 22 апреля 2026</p>
+    </article>
+
+    <footer class="footer">
+        &copy; 2026 <a href="https://landingpro.by">LandingPro</a> — создание сайтов и AI-автоматизация для бизнеса в Минске. Связь: <a href="mailto:info@landingpro.by">info@landingpro.by</a>
+    </footer>
 </body>
 </html>
