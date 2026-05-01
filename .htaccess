@@ -7,6 +7,7 @@ AddCharset UTF-8 .txt .html .css .js .xml .json
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^brief/?$ /brief.html [R=301,L]
+  RewriteRule ^blog/chatbot-for-business-2026/?$ /blog/chat-bot-dlya-biznesa-minsk-2026.html [R=301,L]
 </IfModule>
 
 # Enable GZIP compression
