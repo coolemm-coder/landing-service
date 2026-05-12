@@ -137,7 +137,7 @@
 </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1e293b; background: #ffffff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1e293b; background: #ffffff; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
         .breadcrumb { font-size: 14px; color: #64748b; margin-bottom: 20px; }
         .breadcrumb a { color: #3b82f6; text-decoration: none; }
@@ -176,17 +176,24 @@
         .nav-links a { color: #64748b; text-decoration: none; font-size: .875rem; font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: #3b82f6; }
         .nav-cta { background: #3b82f6 !important; color: #fff !important; padding: 8px 20px; border-radius: 8px; font-weight: 600 !important; }
-        .footer { text-align: center; padding: 32px 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid #e2e8f0; margin-top: 40px; }
-        .footer a { color: #3b82f6; text-decoration: none; }
+        .footer { padding: 48px 24px 32px; color: #64748b; font-size: 14px; border-top: 1px solid #e2e8f0; margin-top: 40px; background: #f8fafc; }
+        .footer-inner { max-width: 1120px; margin: 0 auto; }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid #e2e8f0; }
+        .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1e293b; font-weight: 700; font-size: 1.125rem; }
+        .footer-desc { font-size: 14px; line-height: 1.6; color: #64748b; max-width: 320px; }
+        .footer-col h5 { font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-col a { display: block; color: #64748b; text-decoration: none; padding: 4px 0; font-size: 14px; }
+        .footer-col a:hover { color: #3b82f6; }
+        .footer-bottom { padding-top: 24px; text-align: center; color: #94a3b8; font-size: 13px; }
+        .footer-bottom a { color: #3b82f6; text-decoration: none; }
+        @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 28px; } }
         blockquote { border-left: 3px solid #3b82f6; padding-left: 16px; margin: 16px 0; color: #475569; font-style: italic; }
         code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .read-also { background: #f8fafc; padding: 24px; border-radius: 12px; margin: 32px 0; border: 1px solid #e2e8f0; }
         .read-also h3 { margin-top: 0; color: #0f172a; }
         .read-also ul { margin-bottom: 0; }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SSN3YHPWEY"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SSN3YHPWEY');</script>
     <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106991612','ym');ym(106991612,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});</script>
@@ -393,7 +400,34 @@
     </article>
 
     <footer class="footer">
-        &copy; 2026 <a href="https://landingpro.by">LandingPro</a> — создание сайтов и AI-автоматизация для бизнеса в Минске. Связь: <a href="mailto:info@landingpro.by">info@landingpro.by</a>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><defs><linearGradient id="lgf" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0891b2"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="7" stroke="url(#lgf)" stroke-width="2.5" fill="none"/><path d="M10 8v16h12" stroke="url(#lgf)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="22" cy="8" r="2.5" fill="url(#lgf)"/></svg>
+                        <span>LandingPro</span>
+                    </a>
+                    <p class="footer-desc">Создание сайтов и AI-автоматизация для бизнеса в Минске. Лендинги, интернет-магазины, чат-боты, интеграции с CRM и 1С.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Услуги</h5>
+                    <a href="/#services">Лендинги и сайты</a>
+                    <a href="/#services">Интернет-магазины</a>
+                    <a href="/#services">AI-боты</a>
+                    <a href="/#services">SEO и аналитика</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Контакты</h5>
+                    <a href="tel:+375291977772">+375 (29) 197-77-72</a>
+                    <a href="https://t.me/landingproby_bot" rel="noopener">@landingproby_bot</a>
+                    <a href="mailto:info@landingpro.by">info@landingpro.by</a>
+                    <a href="/brief.html">Заполнить бриф</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 <a href="https://landingpro.by">LandingPro</a>. Минск, Беларусь.
+            </div>
+        </div>
     </footer>
 </body>
 </html>
