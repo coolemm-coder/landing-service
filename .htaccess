@@ -3,11 +3,19 @@ AddDefaultCharset UTF-8
 AddCharset UTF-8 .txt .html .css .js .xml .json
 
 
-# Canonical brief URL
+# Canonical brief URL + 301 consolidation
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^brief/?$ /brief.html [R=301,L]
   RewriteRule ^blog/chatbot-for-business-2026/?$ /blog/chat-bot-dlya-biznesa-minsk-2026.html [R=301,L]
+
+  # 2026-05-11 Wordstat reset: consolidate 6 low-demand AI-chatbot posts onto strong pages
+  RewriteRule ^blog/ai-chatbot-for-business-2026\.html$ /blog/avtomatizaciya-biznesa.html [R=301,L]
+  RewriteRule ^blog/ai-chatbot-for-website\.html$ /blog/avtomatizaciya-biznesa.html [R=301,L]
+  RewriteRule ^blog/chat-bot-dlya-biznesa\.html$ /blog/chat-bot-dlya-biznesa-minsk-2026.html [R=301,L]
+  RewriteRule ^blog/chatbot-development-belarus\.html$ /blog/ai-agents-business-2026.html [R=301,L]
+  RewriteRule ^blog/ai-sdr-b2b-belarus-2026\.html$ /blog/ai-agents-business-2026.html [R=301,L]
+  RewriteRule ^blog/telegram-bot-for-business\.html$ /blog/chat-bot-dlya-biznesa-minsk-2026.html [R=301,L]
 </IfModule>
 
 # Enable GZIP compression
