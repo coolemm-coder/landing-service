@@ -46,8 +46,7 @@
     "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "areaServed": "BY"
-  },
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "12"}
+  }
 }
 </script>
 
@@ -144,6 +143,21 @@ h2 span{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-backgr
 .footer-links a:hover{color:#fff}
 .footer-bottom{text-align:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.3);font-size:.75rem}
 @media (max-width:768px){.nav a:not(.nav-cta){display:none}.grid-3,.process,.pricing-grid{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr;gap:1rem}.cta-box{padding:2.5rem 1.5rem}.footer-row{grid-template-columns:1fr;gap:1.5rem}}
+
+.lp-inline-form{display:flex;flex-direction:column;gap:10px;max-width:480px;margin:1.5rem 0 1rem;padding:1.5rem;background:#fff;border:1px solid var(--bd);border-radius:var(--rl);box-shadow:0 8px 30px rgba(15,23,42,.06)}
+.lp-inline-form input,.lp-inline-form textarea{padding:.85rem 1rem;border:1px solid var(--bd);border-radius:var(--r);font-family:inherit;font-size:.95rem;color:var(--tx);background:#fff;width:100%}
+.lp-inline-form input:focus,.lp-inline-form textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.lp-inline-form textarea{resize:vertical;min-height:60px}
+.lp-inline-submit{background:var(--pri);color:#fff;border:none;padding:.95rem 1.5rem;border-radius:var(--r);font-weight:700;font-size:.95rem;cursor:pointer;text-transform:none;letter-spacing:0;transition:transform .2s,box-shadow .2s}
+.lp-inline-submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(59,130,246,.3)}
+.lp-form-tiny{font-size:.78rem;color:var(--tx-muted);margin-top:.5rem;line-height:1.5}
+.lp-form-tiny a{color:var(--pri);text-decoration:none;font-weight:600}
+.lp-form-thanks{display:none;padding:1.25rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:var(--r);color:#059669;font-weight:600;text-align:center}
+.tg-bubble-lp{position:fixed;right:20px;bottom:20px;z-index:999}
+.tg-bubble-lp a{display:flex;align-items:center;gap:10px;background:#0088cc;color:#fff;padding:14px 22px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(0,136,204,.4);transition:transform .2s,box-shadow .2s;font-weight:600;font-size:14px}
+.tg-bubble-lp a:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,136,204,.5)}
+.tg-bubble-lp svg{flex-shrink:0}
+@media(max-width:600px){.tg-bubble-lp-text{display:none}.tg-bubble-lp a{padding:14px}}
 </style>
 </head>
 <body>
@@ -167,6 +181,18 @@ h2 span{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-backgr
     <p class="lead">Опишите бизнес одним предложением — ИИ соберёт лендинг с дизайном, текстами и SEO-разметкой. Доработка под бренд от $300. Полный код выгружается — никаких подписок Tilda.</p>
     <a href="/brief.html" class="btn btn-primary" onclick="ym(106991612,'reachGoal','click_brief_hero')">Начать с ИИ-генерации</a>
     <a href="#pricing" class="btn btn-outline">Узнать цены</a>
+    <form class="lp-inline-form" action="https://emikss.host/webhook/lp-lead" method="POST" onsubmit="try{ym(106991612,'reachGoal','lp_form_ai_konstruktor');gtag('event','generate_lead',{source:'ai-konstruktor_hero_form'});}catch(e){}">
+  <input type="hidden" name="source" value="lp_ai-konstruktor_hero">
+  <input type="hidden" name="page" class="cta-page-field">
+  <input type="text" name="company" placeholder="Название компании или ИП" required maxlength="120">
+  <input type="tel" name="phone" placeholder="+375 ___ ___-__-__" required maxlength="20">
+  <input type="email" name="email" placeholder="Email для расчёта" required maxlength="120">
+  <textarea name="task" placeholder="Кратко: что за бизнес и какая ключевая цель сайта?" maxlength="500"></textarea>
+  <button type="submit" class="lp-inline-submit">Начать с ИИ-генерации — бесплатное превью</button>
+  <p class="lp-form-tiny">Опишите бизнес в 3 поля — через 30 минут пришлём 3-5 вариантов лендинга. Без обязательств.<br>Или: <a href="https://t.me/landingproby_bot?start=lp_ai-konstruktor" target="_blank" rel="noopener" onclick="try{ym(106991612,'reachGoal','lp_telegram_click');}catch(e){}">@landingproby_bot</a> · <a href="mailto:info@landingpro.by" onclick="try{ym(106991612,'reachGoal','lp_email_click');}catch(e){}">info@landingpro.by</a></p>
+  <div class="lp-form-thanks">✓ Заявка отправлена. Ответим в течение рабочего часа.</div>
+</form>
+
   </div>
 </section>
 
@@ -346,7 +372,7 @@ h2 span{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-backgr
       <div class="footer-col">
         <h4>Контакты</h4>
         <ul class="footer-links">
-          <li><a href="mailto:info@landingpro.by">info@landingpro.by</a></li>
+          <li><a onclick="try{ym(106991612,'reachGoal','lp_mail_click');}catch(e){}" href="mailto:info@landingpro.by">info@landingpro.by</a></li>
           <li><a href="https://t.me/landingproby_bot">Telegram</a></li>
           <li><a href="/brief.html">Заполнить бриф</a></li>
         </ul>
@@ -356,5 +382,7 @@ h2 span{background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-backgr
   </div>
 </footer>
 
+<div class="tg-bubble-lp"><a href="https://t.me/landingproby_bot?start=bubble_ai-konstruktor" target="_blank" rel="noopener" title="Telegram-бот LandingPro" onclick="try{ym(106991612,'reachGoal','tg_bubble_lp_click');gtag('event','click',{outbound:'telegram_bubble'});}catch(e){}"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.7L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg><span class="tg-bubble-lp-text">Спросить за 30 сек</span></a></div>
+<script data-init="cta-page-field-init">document.addEventListener('DOMContentLoaded',function(){var fs=document.querySelectorAll('.cta-page-field');fs.forEach(function(f){f.value=window.location.pathname;});var forms=document.querySelectorAll('.lp-inline-form');forms.forEach(function(form){form.addEventListener('submit',function(e){e.preventDefault();var thanks=form.querySelector('.lp-form-thanks');var btn=form.querySelector('.lp-inline-submit');btn.textContent='Отправляем...';btn.disabled=true;var data=new FormData(form);fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).finally(function(){var inputs=form.querySelectorAll('input:not([type=hidden]), textarea, button');inputs.forEach(function(i){i.style.display='none';});if(thanks){thanks.style.display='block';}});});});});</script>
 </body>
 </html>
