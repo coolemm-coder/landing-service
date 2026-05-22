@@ -428,11 +428,33 @@
         </div>
 
         <!-- CTA -->
-        <div class="cta-section">
-            <h3>Нужен сайт для бизнеса в Минске?</h3>
-            <p>LandingPro — создание сайтов от 490 BYN. Лендинг за 1-3 дня, адаптив, SEO, аналитика включены. Расскажите о задаче — посчитаем бесплатно.</p>
-            <a href="/brief.html" class="cta-btn">Заполнить бриф</a>
+        <div class="cta-section" id="lead">
+            <h3>Создать сайт под ключ в Минске?</h3>
+            <p>LandingPro — создание сайтов от 490 BYN. Лендинг за 1-3 дня, адаптив, SEO, аналитика включены. Опишите задачу в 3 поля — посчитаем бесплатно и пришлём варианты.</p>
+            <form class="lp-inline-form" action="https://emikss.host/webhook/lp-lead" method="POST" onsubmit="try{ym(106991612,'reachGoal','lp_form_sozdanie_sajtov');gtag('event','generate_lead',{source:'blog_sozdanie-sajtov_cta'});}catch(e){}">
+                <input type="hidden" name="source" value="blog_sozdanie-sajtov-minsk">
+                <input type="hidden" name="page" class="cta-page-field">
+                <input type="text" name="company" placeholder="Название компании или ИП" required maxlength="120">
+                <input type="tel" name="phone" placeholder="+375 ___ ___-__-__" required maxlength="20">
+                <input type="email" name="email" placeholder="Email для расчёта" required maxlength="120">
+                <textarea name="task" placeholder="Кратко: что за бизнес и цель сайта?" maxlength="500"></textarea>
+                <button type="submit" class="lp-inline-submit">Получить расчёт бесплатно</button>
+                <p class="lp-form-tiny">Ответим в течение рабочего часа. Или: <a href="https://t.me/landingproby_bot?start=blog_sozdanie_sajtov" target="_blank" rel="noopener">@landingproby_bot</a> · <a href="/brief.html">заполнить бриф</a></p>
+                <div class="lp-form-thanks">✓ Заявка отправлена. Ответим в течение рабочего часа.</div>
+            </form>
         </div>
+        <style>
+        .lp-inline-form{display:flex;flex-direction:column;gap:10px;max-width:480px;margin:1.25rem auto 0;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,.08);text-align:left}
+        .lp-inline-form input,.lp-inline-form textarea{padding:.85rem 1rem;border:1px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:.95rem;color:#0f172a;background:#fff;width:100%}
+        .lp-inline-form input:focus,.lp-inline-form textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+        .lp-inline-form textarea{resize:vertical;min-height:60px}
+        .lp-inline-submit{background:#2563eb;color:#fff;border:none;padding:.95rem 1.5rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
+        .lp-inline-submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,99,235,.3)}
+        .lp-form-tiny{font-size:.78rem;color:#64748b;margin-top:.5rem;line-height:1.5}
+        .lp-form-tiny a{color:#2563eb;text-decoration:none;font-weight:600}
+        .lp-form-thanks{display:none;padding:1.25rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:10px;color:#059669;font-weight:600;text-align:center}
+        </style>
+        <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.cta-page-field').forEach(function(f){f.value=window.location.pathname;});document.querySelectorAll('.lp-inline-form').forEach(function(form){form.addEventListener('submit',function(e){e.preventDefault();var thanks=form.querySelector('.lp-form-thanks');var btn=form.querySelector('.lp-inline-submit');btn.textContent='Отправляем...';btn.disabled=true;var data=new FormData(form);fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).finally(function(){form.querySelectorAll('input:not([type=hidden]), textarea, button').forEach(function(i){i.style.display='none';});if(thanks){thanks.style.display='block';}});});});});</script>
     </article>
 
     <footer class="footer">
