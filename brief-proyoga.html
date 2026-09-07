@@ -520,6 +520,51 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   </div>
 </div>
 
+<!-- 8 -->
+<div class="sec">
+  <div class="sec-num">8</div>
+  <h2>Доступы</h2>
+  <div class="sec-desc">Пароли не нужны нигде. Везде выдаётся отдельная роль или приглашение — его можно отозвать одним кликом. Отметьте, что готовы дать, остальное обсудим на созвоне</div>
+  <div class="card">
+    <div class="field">
+      <label>Что готовы выдать сейчас</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="access_ready" value="Instagram / FB-страница: роль в Meta Business Suite"><span>Instagram — роль в Meta Business Suite</span></label>
+        <label class="chk"><input type="checkbox" name="access_ready" value="Рекламный кабинет: партнёрский доступ"><span>Рекламный кабинет — партнёрский доступ</span></label>
+        <label class="chk"><input type="checkbox" name="access_ready" value="Mobifitness: учётка администратора на просмотр"><span>Mobifitness — учётка на просмотр</span></label>
+        <label class="chk"><input type="checkbox" name="access_ready" value="Mobifitness: выгрузка клиентов и посещений за 6 мес"><span>Mobifitness — выгрузка за 6 мес</span></label>
+        <label class="chk"><input type="checkbox" name="access_ready" value="YClients: сотрудник на просмотр"><span>YClients — сотрудник на просмотр</span></label>
+        <label class="chk"><input type="checkbox" name="access_ready" value="Сайт proyoga.by: админка или хостинг"><span>Сайт — админка / хостинг</span></label>
+      </div>
+      <div class="why">Зачем: Instagram — чтобы подключить автоответ в директе; реклама — чтобы видеть цену обращения по каждому объявлению; Mobifitness — чтобы посчитать, сколько гостей доходит до абонемента и где отваливаются; сайт — чтобы формы с него не терялись.</div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Кто администратор Instagram и FB-страницы</label>
+        <input type="text" name="page_admin" placeholder="имя или @ник — кому слать запрос на роль">
+      </div>
+      <div class="field">
+        <label>Кто настраивал рекламу и с какого кабинета</label>
+        <input type="text" name="ads_admin" placeholder="сами / таргетолог — имя, @ник">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Кто делал сайт и где он лежит</label>
+        <input type="text" name="site_dev" placeholder="студия / фрилансер / сами; хостинг, если знаете">
+      </div>
+      <div class="field">
+        <label>Почта для приглашений</label>
+        <input type="email" name="access_email" placeholder="на неё придут приглашения Meta и YClients">
+      </div>
+    </div>
+    <div class="field">
+      <label>Что давать не готовы или нужно согласовать</label>
+      <textarea name="access_notes" rows="2" placeholder="Например: реклама у подрядчика, спросим его; Mobifitness настраивал бывший админ, доступ ищем"></textarea>
+    </div>
+  </div>
+</div>
+
 <div class="submit-area">
   <button type="button" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
   <div class="hint">Ответы уходят напрямую Эмилю в LandingPro. Если что-то не вспомнили — отправляйте как есть, дополним на созвоне.</div>
@@ -553,9 +598,10 @@ var LABELS={
   new_guests:'Новых гостей / мес',trial_to_sub:'Первый визит → абонемент',renewal:'Продлевают',expiring_week:'Абонементов заканчивается / нед',
   no_show:'Не пришли / нед',outbound_week:'Админ пишет первым / нед',subs_month:'Абонементов / мес',
   pain:'Боли',pain_story:'Случай потери',admin_routine:'Рутина админа',red_lines:'Красные линии',
-  materials:'Пришлют материалы',call_slot:'Слот созвона',timeline:'Срок запуска',extra:'Ещё'
+  materials:'Пришлют материалы',call_slot:'Слот созвона',timeline:'Срок запуска',extra:'Ещё',
+  access_ready:'Готовы выдать доступы',page_admin:'Админ IG/FB',ads_admin:'Кто ведёт рекламный кабинет',site_dev:'Кто делал сайт',access_email:'Почта для приглашений',access_notes:'Доступы: оговорки'
 };
-var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',materials:'\n━━ МАТЕРИАЛЫ ━━'};
+var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',materials:'\n━━ МАТЕРИАЛЫ ━━',access_ready:'\n━━ ДОСТУПЫ ━━'};
 
 function collectData(){
   var form=document.getElementById('briefForm');
