@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бриф для ProYoga — автоматизация заявок и удержания | LandingPro</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f8f9fb;--card:#fff;--tx:#1a1a2e;--mt:#6b7280;--pri:#2563eb;--pri-lt:#eff6ff;--grn:#16a34a;--bd:#e5e7eb;--input-bg:#f9fafb;--teal:#0f766e;--teal-lt:#ecfdf5}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:40px 24px 100px}
+.brief-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--pri),#0891b2);z-index:100;pointer-events:none}
+.hdr{text-align:center;padding:32px 0 28px;border-bottom:1px solid var(--bd);margin-bottom:36px}
+.hdr .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);background:var(--teal-lt);padding:5px 12px;border-radius:6px;margin-bottom:14px}
+.hdr h1{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:10px;text-wrap:balance}
+.hdr h1 span{background:linear-gradient(135deg,#2563eb,#0891b2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr p{font-size:15px;color:var(--mt);max-width:520px;margin:0 auto}
+.hdr-note{margin-top:16px;display:inline-block;background:var(--pri-lt);color:var(--pri);font-size:13px;font-weight:600;padding:6px 16px;border-radius:8px}
+.known{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px 24px;margin-bottom:36px}
+.known h3{font-size:14px;font-weight:700;margin-bottom:8px}
+.known p{font-size:14px;color:var(--mt)}
+.known ul{font-size:14px;color:var(--mt);padding-left:18px;margin-top:8px}
+.known li{margin-bottom:2px}
+.sec{margin-bottom:40px}
+.sec-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--pri);color:#fff;font-size:13px;font-weight:700;margin-bottom:10px}
+.sec h2{font-size:20px;font-weight:700;margin-bottom:6px}
+.sec-desc{font-size:14px;color:var(--mt);margin-bottom:20px}
+.field{margin-bottom:20px}
+.field:last-child{margin-bottom:0}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)}
+.field label .req{color:#dc2626;margin-left:2px}
+.field .hint{font-size:12px;color:var(--mt);margin-bottom:6px}
+input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input[type="number"],textarea,select{width:100%;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;font-size:14px;font-family:inherit;background:var(--input-bg);color:var(--tx);transition:.2s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+textarea{resize:vertical;min-height:80px}
+select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chk{position:relative}
+.chk input{position:absolute;opacity:0;pointer-events:none}
+.chk span{display:inline-block;padding:8px 16px;border:1.5px solid var(--bd);border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;transition:.2s;background:var(--card);user-select:none}
+.chk input:checked+span{border-color:var(--pri);background:var(--pri-lt);color:var(--pri);font-weight:600}
+.chk input:focus-visible+span{outline:2px solid var(--pri);outline-offset:2px}
+.chk span:hover{border-color:var(--pri);background:var(--pri-lt)}
+.card{background:var(--card);border-radius:14px;padding:24px;border:1px solid var(--bd);box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:24px}
+.card:last-child{margin-bottom:0}
+.why{font-size:12px;color:var(--teal);margin-top:6px}
+.submit-area{text-align:center;padding:32px 0}
+.submit-area .hint{font-size:13px;color:var(--mt);margin-top:12px}
+.btn-submit{background:var(--pri);color:#fff;border:none;padding:14px 40px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:.2s;box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+.btn-submit:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+.btn-submit:disabled{cursor:default;transform:none}
+#success{display:none;text-align:center;padding:60px 20px}
+#success h2{color:var(--grn);margin-bottom:16px}
+#success p{color:var(--mt);font-size:16px;margin-bottom:8px}
+.header{border-bottom:1px solid #e2e8f0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.header .inner{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1e293b;font-weight:700;font-size:1.125rem}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:#64748b;text-decoration:none;font-size:.875rem;font-weight:500}
+.nav-links a:hover{color:#3b82f6}
+@media(max-width:640px){.nav-links{gap:1rem}.nav-links a{font-size:.8rem}.header .inner{padding:12px 16px}}
+@media print{body{background:#fff}.wrap{padding:20px}.btn-submit,.submit-area .hint,.brief-progress,.header{display:none}.card{box-shadow:none;border:1px solid #ddd}}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106991612', 'ym');
+    ym(106991612, 'init', {ssr:true, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106991612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<header class="header">
+  <div class="inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 32 32" fill="none" width="28" height="28"><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0891b2"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="7" stroke="url(#lg)" stroke-width="2.5" fill="none"/><path d="M10 8v16h12" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="22" cy="8" r="2.5" fill="url(#lg)"/></svg>
+      <span class="logo-text">LandingPro</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Главная</a>
+      <a href="https://t.me/landingproby_bot">Написать в Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<div class="brief-progress" id="briefProgress"></div>
+
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eyebrow">ProYoga · Маяк Минска</div>
+  <h1>Бриф: <span>заявки из Instagram и удержание гостей</span></h1>
+  <p>Отвечайте коротко и как есть. Не знаете цифру — пишите «не считаем», это тоже ответ. Нам важна реальная картина, а не красивая.</p>
+  <div class="hdr-note">Заполнение 10–15 минут</div>
+</div>
+
+<div class="known">
+  <h3>Что мы уже посмотрели сами — об этом не спрашиваем</h3>
+  <p>Сайт proyoga.by, цены и правила, расписание в Mobifitness, приложение, Instagram и текущие объявления, Telegram-канал, карточки на картах, конкурентов и спрос в поиске по Минску. Вопросы ниже — только о том, что снаружи не видно:</p>
+  <ul>
+    <li>что происходит с человеком после того, как он написал в директ</li>
+    <li>какие напоминания и уведомления у вас уже включены</li>
+    <li>цифры, которые есть только внутри студии</li>
+  </ul>
+</div>
+
+<form id="briefForm" action="https://formsubmit.co/ecoprofit.em@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Бриф ProYoga — LandingPro.by">
+<input type="hidden" name="_next" value="https://landingpro.by/brief-proyoga.html?sent=1">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<!-- 1 -->
+<div class="sec">
+  <div class="sec-num">1</div>
+  <h2>Кто заполняет</h2>
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Имя <span class="req">*</span></label>
+        <input type="text" name="contact_name" required>
+      </div>
+      <div class="field">
+        <label>Роль в студии <span class="req">*</span></label>
+        <select name="role" required>
+          <option value="">Выберите</option>
+          <option>Владелец / руководитель</option>
+          <option>Администратор</option>
+          <option>Маркетолог / SMM</option>
+          <option>Другое</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Телефон или Telegram для связи <span class="req">*</span></label>
+        <input type="text" name="phone" placeholder="+375 29 … или @ник" required>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="proyogaminsk@gmail.com">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="sec">
+  <div class="sec-num">2</div>
+  <h2>Обращения: откуда приходят и что с ними происходит</h2>
+  <div class="sec-desc">Ваши объявления ведут людей в директ Instagram — значит, самое важное происходит в переписке</div>
+  <div class="card">
+    <div class="field">
+      <label>Куда падают обращения? <span class="req">*</span></label>
+      <div class="hint">Отметьте всё, что реально используется</div>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="channels" value="Директ Instagram"><span>Директ Instagram</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Комментарии под постами"><span>Комментарии</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Telegram студии"><span>Telegram</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Звонки"><span>Звонки</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Формы на сайте"><span>Формы на сайте</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Сразу регистрация в приложении"><span>Сами регистрируются в приложении</span></label>
+        <label class="chk"><input type="checkbox" name="channels" value="Приходят ногами"><span>Приходят ногами</span></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Сколько обращений в неделю в директ? <span class="req">*</span></label>
+        <select name="dm_per_week" required>
+          <option value="">Выберите</option>
+          <option>до 10</option>
+          <option>10–30</option>
+          <option>30–60</option>
+          <option>60–100</option>
+          <option>больше 100</option>
+          <option>не считаем</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Из них новых людей (не ваши гости)</label>
+        <select name="dm_new_share">
+          <option value="">Выберите</option>
+          <option>меньше четверти</option>
+          <option>примерно четверть</option>
+          <option>примерно половина</option>
+          <option>большинство</option>
+          <option>не знаем</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Кто отвечает в директе и с какого устройства? <span class="req">*</span></label>
+      <div class="hint">Например: «администратор с телефона студии, вечером — владелец со своего»</div>
+      <input type="text" name="who_answers" required>
+    </div>
+    <div class="field">
+      <label>Как быстро обычно отвечаете?</label>
+      <div class="row">
+        <div>
+          <div class="hint">Днём в будни</div>
+          <select name="reply_day">
+            <option value="">Выберите</option>
+            <option>минуты</option>
+            <option>до часа</option>
+            <option>несколько часов</option>
+            <option>на следующий день</option>
+          </select>
+        </div>
+        <div>
+          <div class="hint">Вечером и в выходные</div>
+          <select name="reply_evening">
+            <option value="">Выберите</option>
+            <option>минуты</option>
+            <option>до часа</option>
+            <option>несколько часов</option>
+            <option>на следующий день</option>
+            <option>не отвечаем</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Откройте директ и посчитайте: сколько сообщений за последние 7 дней остались без ответа?</label>
+      <div class="hint">Честная цифра здесь стоит больше, чем весь остальной бриф</div>
+      <input type="text" name="unanswered_week" placeholder="например: 6">
+    </div>
+    <div class="field">
+      <label>О чём спрашивают чаще всего?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="faq" value="Цены и абонементы"><span>Цены и абонементы</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Расписание"><span>Расписание</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="С чего начать новичку"><span>С чего начать новичку</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Как записаться / приложение"><span>Как записаться</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Как добраться, парковка"><span>Как добраться</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Беременные"><span>Беременные</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Детские"><span>Детские</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Гамаки"><span>Гамаки</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="SPA"><span>SPA</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Заморозка / продление"><span>Заморозка, продление</span></label>
+        <label class="chk"><input type="checkbox" name="faq" value="Отмена записи"><span>Отмена записи</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что вы делаете, когда человек написал «сколько стоит?» и пропал?</label>
+      <div class="hint">Пишете повторно, через сколько, сколько раз — или отпускаете</div>
+      <textarea name="followup" rows="2"></textarea>
+    </div>
+    <div class="field">
+      <label>Есть ли готовые шаблоны ответов? Где они лежат?</label>
+      <input type="text" name="templates" placeholder="в заметках телефона / в сохранённых ответах Instagram / нет">
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="sec">
+  <div class="sec-num">3</div>
+  <h2>Реклама</h2>
+  <div class="sec-desc">Сейчас у вас 15 активных объявлений — нужно понять, как вы оцениваете их отдачу</div>
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Бюджет на рекламу в месяц</label>
+        <select name="ad_budget">
+          <option value="">Выберите</option>
+          <option>до 300 $</option>
+          <option>300–700 $</option>
+          <option>700–1500 $</option>
+          <option>больше 1500 $</option>
+          <option>не хочу называть</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Кто ведёт рекламу</label>
+        <select name="ad_who">
+          <option value="">Выберите</option>
+          <option>Сами</option>
+          <option>Подрядчик / фрилансер</option>
+          <option>Агентство</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Знаете ли вы, сколько стоит одно обращение и сколько — один купленный абонемент с рекламы?</label>
+      <textarea name="ad_cost" rows="2" placeholder="Например: обращение ~4 $, дальше не считаем"></textarea>
+    </div>
+    <div class="field">
+      <label>Как вы понимаете, что человек пришёл именно с рекламы?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="ad_tracking" value="Спрашиваем «откуда узнали»"><span>Спрашиваем «откуда узнали»</span></label>
+        <label class="chk"><input type="checkbox" name="ad_tracking" value="Видим по переписке с объявления"><span>Видно в переписке</span></label>
+        <label class="chk"><input type="checkbox" name="ad_tracking" value="Отчёт Meta"><span>Смотрим отчёт Meta</span></label>
+        <label class="chk"><input type="checkbox" name="ad_tracking" value="Никак"><span>Никак</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что сейчас считается «результатом» рекламы для вас?</label>
+      <select name="ad_goal">
+        <option value="">Выберите</option>
+        <option>Сообщения в директ</option>
+        <option>Подписчики</option>
+        <option>Записи на занятие</option>
+        <option>Купленные абонементы</option>
+        <option>Не формулировали</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="sec">
+  <div class="sec-num">4</div>
+  <h2>Mobifitness, YClients и что уже автоматизировано</h2>
+  <div class="sec-desc">Часть напоминаний в Mobifitness есть «из коробки» — важно понять, что включено, а что нет, чтобы не делать дважды</div>
+  <div class="card">
+    <div class="field">
+      <label>Какие автоматические сообщения гостям сейчас включены?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="auto_on" value="Напоминание о занятии"><span>Напоминание о занятии</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Подтверждение записи"><span>Подтверждение записи</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Абонемент заканчивается"><span>Абонемент заканчивается</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Давно не был"><span>«Давно не были»</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="День рождения"><span>День рождения</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Рассылки по акциям"><span>Рассылки по акциям</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Ничего"><span>Ничего</span></label>
+        <label class="chk"><input type="checkbox" name="auto_on" value="Не знаем"><span>Не знаем</span></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>По каким каналам они уходят</label>
+        <div class="checks">
+          <label class="chk"><input type="checkbox" name="auto_channels" value="Push в приложении"><span>Push</span></label>
+          <label class="chk"><input type="checkbox" name="auto_channels" value="SMS"><span>SMS</span></label>
+          <label class="chk"><input type="checkbox" name="auto_channels" value="Email"><span>Email</span></label>
+          <label class="chk"><input type="checkbox" name="auto_channels" value="Вручную пишем"><span>Пишем вручную</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Какая доля гостей пользуется приложением</label>
+        <select name="app_share">
+          <option value="">Выберите</option>
+          <option>почти все</option>
+          <option>больше половины</option>
+          <option>меньше половины</option>
+          <option>единицы</option>
+          <option>не знаем</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Кто настраивал Mobifitness и есть ли у вас доступ в админку с полными правами?</label>
+      <input type="text" name="mobifitness_admin">
+    </div>
+    <div class="field">
+      <label>Android-приложение: ссылка с сайта ведёт на несуществующую страницу Google Play. Это известная проблема?</label>
+      <select name="android_status">
+        <option value="">Выберите</option>
+        <option>Приложение для Android есть, ссылка просто устарела</option>
+        <option>Android-версии нет, гости регистрируются на сайте</option>
+        <option>Впервые слышим</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Что ещё используете для учёта и связи?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="tools" value="YClients (spa)"><span>YClients для SPA</span></label>
+        <label class="chk"><input type="checkbox" name="tools" value="amoCRM"><span>amoCRM</span></label>
+        <label class="chk"><input type="checkbox" name="tools" value="Google-таблицы"><span>Google-таблицы</span></label>
+        <label class="chk"><input type="checkbox" name="tools" value="Тетрадь / заметки"><span>Тетрадь, заметки</span></label>
+        <label class="chk"><input type="checkbox" name="tools" value="Рабочий телефон студии"><span>Отдельный телефон студии</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Формы на сайте (анкета нового гостя, заявка, корпоратив): куда приходят заявки и кто их видит?</label>
+      <input type="text" name="site_forms" placeholder="на почту / в Telegram / не знаем, что они есть">
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="sec">
+  <div class="sec-num">5</div>
+  <h2>Цифры, которые есть только у вас</h2>
+  <div class="sec-desc">Оценочно — достаточно порядка величины. Если Mobifitness даёт отчёт, лучше выгрузить его и прислать</div>
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Новых гостей в месяц (первый визит)</label>
+        <input type="text" name="new_guests" placeholder="например: 40">
+      </div>
+      <div class="field">
+        <label>Из них покупают абонемент после первого визита</label>
+        <select name="trial_to_sub">
+          <option value="">Выберите</option>
+          <option>меньше 20%</option>
+          <option>20–40%</option>
+          <option>40–60%</option>
+          <option>больше 60%</option>
+          <option>не считаем</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Продлевают абонемент после окончания</label>
+        <select name="renewal">
+          <option value="">Выберите</option>
+          <option>меньше трети</option>
+          <option>примерно треть</option>
+          <option>примерно половина</option>
+          <option>больше половины</option>
+          <option>не считаем</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Сколько абонементов заканчивается в неделю</label>
+        <input type="text" name="expiring_week" placeholder="например: 25">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Записались и не пришли (за неделю)</label>
+        <input type="text" name="no_show" placeholder="например: 10 из 150">
+      </div>
+      <div class="field">
+        <label>Сколько раз в неделю администратор пишет кому-то первым</label>
+        <input type="text" name="outbound_week" placeholder="напоминания, продления, «где вы пропали»">
+      </div>
+    </div>
+    <div class="field">
+      <label>Сколько абонементов в месяц продаётся? Хотя бы порядок</label>
+      <input type="text" name="subs_month" placeholder="например: 120–150">
+    </div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="sec">
+  <div class="sec-num">6</div>
+  <h2>Что болит</h2>
+  <div class="card">
+    <div class="field">
+      <label>Выберите не больше трёх <span class="req">*</span></label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="pain" value="Не успеваем отвечать в директе"><span>Не успеваем отвечать</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Отвечаем, но люди не доходят до студии"><span>Отвечаем, но не доходят</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Пришли раз и пропали"><span>Пришли раз и пропали</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Не продлевают абонементы"><span>Не продлевают</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Записываются и не приходят"><span>Записываются и не приходят</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Не понимаем отдачу рекламы"><span>Не понимаем отдачу рекламы</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Администратор тонет в рутине"><span>Админ тонет в рутине</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Текучка администраторов"><span>Текучка админов</span></label>
+        <label class="chk"><input type="checkbox" name="pain" value="Пустые слоты в расписании"><span>Пустые слоты</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Опишите один реальный случай за последний месяц, когда потеряли гостя или деньги из-за «не успели / забыли»</label>
+      <textarea name="pain_story" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label>Что администратор делает руками каждый день и что вы бы с радостью у него забрали?</label>
+      <textarea name="admin_routine" rows="3" placeholder="Например: отвечает на одни и те же вопросы, переносит записи, обзванивает про продление, сверяет оплаты…"></textarea>
+    </div>
+    <div class="field">
+      <label>Чего точно НЕ должно быть? Ваши красные линии</label>
+      <div class="hint">Например: «никаких роботов в переписке с постоянными гостями», «никаких SMS», «не трогать приложение»</div>
+      <textarea name="red_lines" rows="2"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="sec">
+  <div class="sec-num">7</div>
+  <h2>Материалы и следующий шаг</h2>
+  <div class="sec-desc">Ничего из этого не требует доступов — только прислать в Telegram</div>
+  <div class="card">
+    <div class="field">
+      <label>Что сможете прислать в ближайшие дни?</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="materials" value="Скрины директа за неделю"><span>Скрины директа за неделю</span></label>
+        <label class="chk"><input type="checkbox" name="materials" value="Отчёт Mobifitness по посещениям и абонементам"><span>Отчёт Mobifitness</span></label>
+        <label class="chk"><input type="checkbox" name="materials" value="Отчёт рекламного кабинета за 2–3 месяца"><span>Отчёт по рекламе</span></label>
+        <label class="chk"><input type="checkbox" name="materials" value="Шаблоны ответов админа"><span>Шаблоны ответов</span></label>
+        <label class="chk"><input type="checkbox" name="materials" value="3 дня заметок администратора"><span>3 дня заметок админа</span></label>
+      </div>
+      <div class="why">Заметки админа: три дня записывать голосовым или в заметки, что делал руками — «ответила на 14 сообщений, 6 раз объясняла, как добраться, перенесла 3 записи». Это даёт карту рутины в минутах.</div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Когда удобно созвониться на 20 минут с вами и администратором?</label>
+        <input type="text" name="call_slot" placeholder="например: вт–чт после 14:00">
+      </div>
+      <div class="field">
+        <label>Когда хотите запустить первое изменение?</label>
+        <select name="timeline">
+          <option value="">Выберите</option>
+          <option>На этой неделе</option>
+          <option>В течение месяца</option>
+          <option>Сначала посмотреть предложение</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что-то ещё, что нам стоит знать</label>
+      <textarea name="extra" rows="3"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="submit-area">
+  <button type="button" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
+  <div class="hint">Ответы уходят напрямую Эмилю в LandingPro. Если что-то не вспомнили — отправляйте как есть, дополним на созвоне.</div>
+</div>
+</form>
+
+<div id="success">
+  <h2>Бриф получен</h2>
+  <p>Спасибо. Прочитаем, сопоставим с тем, что уже посмотрели, и вернёмся с планом первого шага.</p>
+  <p>Материалы (скрины, отчёты, заметки) можно присылать сюда: <a href="https://t.me/landingproby_bot">@landingproby_bot</a></p>
+</div>
+
+</div>
+
+<script>
+/* scroll progress */
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var p=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('briefProgress').style.width=Math.min(100,p)+'%';
+},{passive:true});
+
+var LABELS={
+  contact_name:'Имя',role:'Роль',phone:'Телефон / Telegram',email:'Email',
+  channels:'Каналы обращений',dm_per_week:'Обращений в директ / нед',dm_new_share:'Доля новых',who_answers:'Кто отвечает',
+  reply_day:'Скорость ответа днём',reply_evening:'Скорость ответа вечером/выходные',unanswered_week:'Без ответа за 7 дней',
+  faq:'Частые вопросы',followup:'Что делаем с пропавшими',templates:'Шаблоны ответов',
+  ad_budget:'Бюджет рекламы / мес',ad_who:'Кто ведёт рекламу',ad_cost:'Цена обращения / абонемента',ad_tracking:'Как понимают источник',ad_goal:'Что считают результатом',
+  auto_on:'Включённые авто-сообщения',auto_channels:'Каналы авто-сообщений',app_share:'Доля гостей в приложении',mobifitness_admin:'Кто настраивал Mobifitness / доступ',
+  android_status:'Android-приложение',tools:'Другие инструменты',site_forms:'Куда уходят формы сайта',
+  new_guests:'Новых гостей / мес',trial_to_sub:'Первый визит → абонемент',renewal:'Продлевают',expiring_week:'Абонементов заканчивается / нед',
+  no_show:'Не пришли / нед',outbound_week:'Админ пишет первым / нед',subs_month:'Абонементов / мес',
+  pain:'Боли',pain_story:'Случай потери',admin_routine:'Рутина админа',red_lines:'Красные линии',
+  materials:'Пришлют материалы',call_slot:'Слот созвона',timeline:'Срок запуска',extra:'Ещё'
+};
+var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',materials:'\n━━ МАТЕРИАЛЫ ━━'};
+
+function collectData(){
+  var form=document.getElementById('briefForm');
+  var data={};
+  var order=[];
+  Array.prototype.forEach.call(form.elements,function(el){
+    if(!el.name||el.name.charAt(0)==='_')return;
+    if(el.type==='checkbox'){
+      if(!el.checked)return;
+      if(!data[el.name]){data[el.name]=[];order.push(el.name);}
+      data[el.name].push(el.value);
+    }else if(el.value&&el.value.trim()){
+      data[el.name]=el.value.trim();order.push(el.name);
+    }
+  });
+  return {data:data,order:order};
+}
+
+function formatMessage(c){
+  var lines=['БРИФ PROYOGA'];
+  c.order.forEach(function(k){
+    if(SECTIONS[k])lines.push(SECTIONS[k]);
+    var v=c.data[k];
+    if(Object.prototype.toString.call(v)==='[object Array]')v=v.join(', ');
+    lines.push((LABELS[k]||k)+': '+v);
+  });
+  return lines.join('\n');
+}
+
+function sendBrief(){
+  var c=collectData();
+  var d=c.data;
+  if(!d.contact_name||!d.phone||!d.role||!d.who_answers||!d.dm_per_week||!d.channels||!d.pain){
+    alert('Заполните обязательные поля: имя, роль, контакт, каналы обращений, объём в директ, кто отвечает, боли');
+    return;
+  }
+  if(d.pain.length>3){alert('В разделе «Что болит» выберите не больше трёх пунктов');return;}
+  var btn=document.querySelector('.btn-submit');
+  btn.textContent='Отправляем...';btn.disabled=true;btn.style.opacity='.6';
+
+  var text=formatMessage(c);
+  var payload={name:d.contact_name,phone:d.phone,email:d.email||'—',company:'ProYoga (proyoga.by)',message:text};
+
+  var done=false;
+  function finish(){
+    if(done)return;done=true;
+    try{ym(106991612,'reachGoal','submit_brief')}catch(e){}
+    document.getElementById('briefForm').style.display='none';
+    document.getElementById('success').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  fetch('https://automation.landingpro.by/webhook/landingpro-brief',{
+    method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+  }).then(function(r){if(!r.ok)throw new Error(r.status);finish();})
+  .catch(function(){
+    /* webhook unreachable — fall back to the formsubmit channel */
+    var form=document.getElementById('briefForm');
+    var hidden=document.createElement('input');
+    hidden.type='hidden';hidden.name='brief_text';hidden.value=text;
+    form.appendChild(hidden);
+    form.submit();
+  });
+}
+
+if(window.location.search.indexOf('sent=1')!==-1){
+  document.getElementById('briefForm').style.display='none';
+  document.getElementById('success').style.display='block';
+}
+</script>
+</body>
+</html>
