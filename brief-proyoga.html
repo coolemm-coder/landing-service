@@ -484,45 +484,6 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
 <!-- 7 -->
 <div class="sec">
   <div class="sec-num">7</div>
-  <h2>Материалы и следующий шаг</h2>
-  <div class="sec-desc">Ничего из этого не требует доступов — только прислать в Telegram</div>
-  <div class="card">
-    <div class="field">
-      <label>Что сможете прислать в ближайшие дни?</label>
-      <div class="checks">
-        <label class="chk"><input type="checkbox" name="materials" value="Скрины директа за неделю"><span>Скрины директа за неделю</span></label>
-        <label class="chk"><input type="checkbox" name="materials" value="Отчёт Mobifitness по посещениям и абонементам"><span>Отчёт Mobifitness</span></label>
-        <label class="chk"><input type="checkbox" name="materials" value="Отчёт рекламного кабинета за 2–3 месяца"><span>Отчёт по рекламе</span></label>
-        <label class="chk"><input type="checkbox" name="materials" value="Шаблоны ответов админа"><span>Шаблоны ответов</span></label>
-        <label class="chk"><input type="checkbox" name="materials" value="3 дня заметок администратора"><span>3 дня заметок админа</span></label>
-      </div>
-      <div class="why">Заметки админа: три дня записывать голосовым или в заметки, что делал руками — «ответила на 14 сообщений, 6 раз объясняла, как добраться, перенесла 3 записи». Это даёт карту рутины в минутах.</div>
-    </div>
-    <div class="row">
-      <div class="field">
-        <label>Когда удобно созвониться на 20 минут с вами и администратором?</label>
-        <input type="text" name="call_slot" placeholder="например: вт–чт после 14:00">
-      </div>
-      <div class="field">
-        <label>Когда хотите запустить первое изменение?</label>
-        <select name="timeline">
-          <option value="">Выберите</option>
-          <option>На этой неделе</option>
-          <option>В течение месяца</option>
-          <option>Сначала посмотреть предложение</option>
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label>Что-то ещё, что нам стоит знать</label>
-      <textarea name="extra" rows="3"></textarea>
-    </div>
-  </div>
-</div>
-
-<!-- 8 -->
-<div class="sec">
-  <div class="sec-num">8</div>
   <h2>Доступы</h2>
   <div class="sec-desc">Пароли не нужны нигде. Везде выдаётся отдельная роль или приглашение — его можно отозвать одним кликом. Отметьте, что готовы дать, остальное обсудим на созвоне</div>
   <div class="card">
@@ -562,6 +523,25 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
       <label>Что давать не готовы или нужно согласовать</label>
       <textarea name="access_notes" rows="2" placeholder="Например: реклама у подрядчика, спросим его; Mobifitness настраивал бывший админ, доступ ищем"></textarea>
     </div>
+    <div class="row">
+      <div class="field">
+        <label>Когда удобно созвониться на 20 минут с вами и администратором?</label>
+        <input type="text" name="call_slot" placeholder="например: вт–чт после 14:00">
+      </div>
+      <div class="field">
+        <label>Когда хотите запустить первое изменение?</label>
+        <select name="timeline">
+          <option value="">Выберите</option>
+          <option>На этой неделе</option>
+          <option>В течение месяца</option>
+          <option>Сначала посмотреть предложение</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Что-то ещё, что нам стоит знать</label>
+      <textarea name="extra" rows="3"></textarea>
+    </div>
   </div>
 </div>
 
@@ -574,7 +554,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
 <div id="success">
   <h2>Бриф получен</h2>
   <p>Спасибо. Прочитаем, сопоставим с тем, что уже посмотрели, и вернёмся с планом первого шага.</p>
-  <p>Материалы (скрины, отчёты, заметки) можно присылать сюда: <a href="https://t.me/landingproby_bot">@landingproby_bot</a></p>
+  <p>Вопросы и скрины можно присылать сюда: <a href="https://t.me/landingproby_bot">@landingproby_bot</a></p>
 </div>
 
 </div>
@@ -598,10 +578,9 @@ var LABELS={
   new_guests:'Новых гостей / мес',trial_to_sub:'Первый визит → абонемент',renewal:'Продлевают',expiring_week:'Абонементов заканчивается / нед',
   no_show:'Не пришли / нед',outbound_week:'Админ пишет первым / нед',subs_month:'Абонементов / мес',
   pain:'Боли',pain_story:'Случай потери',admin_routine:'Рутина админа',red_lines:'Красные линии',
-  materials:'Пришлют материалы',call_slot:'Слот созвона',timeline:'Срок запуска',extra:'Ещё',
-  access_ready:'Готовы выдать доступы',page_admin:'Админ IG/FB',ads_admin:'Кто ведёт рекламный кабинет',site_dev:'Кто делал сайт',access_email:'Почта для приглашений',access_notes:'Доступы: оговорки'
+  call_slot:'Слот созвона',timeline:'Срок запуска',extra:'Ещё',access_ready:'Готовы выдать доступы',page_admin:'Админ IG/FB',ads_admin:'Кто ведёт рекламный кабинет',site_dev:'Кто делал сайт',access_email:'Почта для приглашений',access_notes:'Доступы: оговорки'
 };
-var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',materials:'\n━━ МАТЕРИАЛЫ ━━',access_ready:'\n━━ ДОСТУПЫ ━━'};
+var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',access_ready:'\n━━ ДОСТУПЫ ━━'};
 
 function collectData(){
   var form=document.getElementById('briefForm');
