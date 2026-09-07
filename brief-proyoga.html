@@ -38,7 +38,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0
 textarea{resize:vertical;min-height:80px}
 select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:520px){.row{grid-template-columns:1fr}}
+@media(max-width:520px){.row{grid-template-columns:1fr}input[type="text"],input[type="email"],textarea{font-size:16px}.chk span{padding:10px 14px;font-size:14px}}
 .checks{display:flex;flex-wrap:wrap;gap:8px}
 .chk{position:relative}
 .chk input{position:absolute;opacity:0;pointer-events:none}
@@ -102,7 +102,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   <div class="eyebrow">ProYoga · Маяк Минска</div>
   <h1>Бриф: <span>заявки из Instagram и удержание гостей</span></h1>
   <p>Отвечайте коротко и как есть. Не знаете цифру — пишите «не считаем», это тоже ответ. Нам важна реальная картина, а не красивая.</p>
-  <div class="hdr-note">Заполнение 10–15 минут</div>
+  <div class="hdr-note">Около 10 минут · обязательны только имя и контакт · черновик сохраняется сам</div>
 </div>
 
 <div class="known">
@@ -132,14 +132,8 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
         <input type="text" name="contact_name" required>
       </div>
       <div class="field">
-        <label>Роль в студии <span class="req">*</span></label>
-        <select name="role" required>
-          <option value="">Выберите</option>
-          <option>Владелец / руководитель</option>
-          <option>Администратор</option>
-          <option>Маркетолог / SMM</option>
-          <option>Другое</option>
-        </select>
+        <label>Роль в студии</label>
+        <div class="checks"><label class="chk"><input type="radio" name="role" value="Владелец / руководитель"><span>Владелец / руководитель</span></label><label class="chk"><input type="radio" name="role" value="Администратор"><span>Администратор</span></label><label class="chk"><input type="radio" name="role" value="Маркетолог / SMM"><span>Маркетолог / SMM</span></label><label class="chk"><input type="radio" name="role" value="Другое"><span>Другое</span></label></div>
       </div>
     </div>
     <div class="row">
@@ -162,7 +156,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   <div class="sec-desc">Ваши объявления ведут людей в директ Instagram — значит, самое важное происходит в переписке</div>
   <div class="card">
     <div class="field">
-      <label>Куда падают обращения? <span class="req">*</span></label>
+      <label>Куда падают обращения?</label>
       <div class="hint">Отметьте всё, что реально используется</div>
       <div class="checks">
         <label class="chk"><input type="checkbox" name="channels" value="Директ Instagram"><span>Директ Instagram</span></label>
@@ -176,57 +170,29 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
     </div>
     <div class="row">
       <div class="field">
-        <label>Сколько обращений в неделю в директ? <span class="req">*</span></label>
-        <select name="dm_per_week" required>
-          <option value="">Выберите</option>
-          <option>до 10</option>
-          <option>10–30</option>
-          <option>30–60</option>
-          <option>60–100</option>
-          <option>больше 100</option>
-          <option>не считаем</option>
-        </select>
+        <label>Сколько обращений в неделю в директ?</label>
+        <div class="checks"><label class="chk"><input type="radio" name="dm_per_week" value="до 10"><span>до 10</span></label><label class="chk"><input type="radio" name="dm_per_week" value="10–30"><span>10–30</span></label><label class="chk"><input type="radio" name="dm_per_week" value="30–60"><span>30–60</span></label><label class="chk"><input type="radio" name="dm_per_week" value="60–100"><span>60–100</span></label><label class="chk"><input type="radio" name="dm_per_week" value="больше 100"><span>больше 100</span></label><label class="chk"><input type="radio" name="dm_per_week" value="не считаем"><span>не считаем</span></label></div>
       </div>
       <div class="field">
         <label>Из них новых людей (не ваши гости)</label>
-        <select name="dm_new_share">
-          <option value="">Выберите</option>
-          <option>меньше четверти</option>
-          <option>примерно четверть</option>
-          <option>примерно половина</option>
-          <option>большинство</option>
-          <option>не знаем</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="dm_new_share" value="меньше четверти"><span>меньше четверти</span></label><label class="chk"><input type="radio" name="dm_new_share" value="примерно четверть"><span>примерно четверть</span></label><label class="chk"><input type="radio" name="dm_new_share" value="примерно половина"><span>примерно половина</span></label><label class="chk"><input type="radio" name="dm_new_share" value="большинство"><span>большинство</span></label><label class="chk"><input type="radio" name="dm_new_share" value="не знаем"><span>не знаем</span></label></div>
       </div>
     </div>
     <div class="field">
-      <label>Кто отвечает в директе и с какого устройства? <span class="req">*</span></label>
+      <label>Кто отвечает в директе и с какого устройства?</label>
       <div class="hint">Например: «администратор с телефона студии, вечером — владелец со своего»</div>
-      <input type="text" name="who_answers" required>
+      <input type="text" name="who_answers">
     </div>
     <div class="field">
       <label>Как быстро обычно отвечаете?</label>
       <div class="row">
         <div>
           <div class="hint">Днём в будни</div>
-          <select name="reply_day">
-            <option value="">Выберите</option>
-            <option>минуты</option>
-            <option>до часа</option>
-            <option>несколько часов</option>
-            <option>на следующий день</option>
-          </select>
+          <div class="checks"><label class="chk"><input type="radio" name="reply_day" value="минуты"><span>минуты</span></label><label class="chk"><input type="radio" name="reply_day" value="до часа"><span>до часа</span></label><label class="chk"><input type="radio" name="reply_day" value="несколько часов"><span>несколько часов</span></label><label class="chk"><input type="radio" name="reply_day" value="на следующий день"><span>на следующий день</span></label></div>
         </div>
         <div>
           <div class="hint">Вечером и в выходные</div>
-          <select name="reply_evening">
-            <option value="">Выберите</option>
-            <option>минуты</option>
-            <option>до часа</option>
-            <option>несколько часов</option>
-            <option>на следующий день</option>
-            <option>не отвечаем</option>
-          </select>
+          <div class="checks"><label class="chk"><input type="radio" name="reply_evening" value="минуты"><span>минуты</span></label><label class="chk"><input type="radio" name="reply_evening" value="до часа"><span>до часа</span></label><label class="chk"><input type="radio" name="reply_evening" value="несколько часов"><span>несколько часов</span></label><label class="chk"><input type="radio" name="reply_evening" value="на следующий день"><span>на следующий день</span></label><label class="chk"><input type="radio" name="reply_evening" value="не отвечаем"><span>не отвечаем</span></label></div>
         </div>
       </div>
     </div>
@@ -272,23 +238,11 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
     <div class="row">
       <div class="field">
         <label>Бюджет на рекламу в месяц</label>
-        <select name="ad_budget">
-          <option value="">Выберите</option>
-          <option>до 300 $</option>
-          <option>300–700 $</option>
-          <option>700–1500 $</option>
-          <option>больше 1500 $</option>
-          <option>не хочу называть</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="ad_budget" value="до 300 $"><span>до 300 $</span></label><label class="chk"><input type="radio" name="ad_budget" value="300–700 $"><span>300–700 $</span></label><label class="chk"><input type="radio" name="ad_budget" value="700–1500 $"><span>700–1500 $</span></label><label class="chk"><input type="radio" name="ad_budget" value="больше 1500 $"><span>больше 1500 $</span></label><label class="chk"><input type="radio" name="ad_budget" value="не хочу называть"><span>не хочу называть</span></label></div>
       </div>
       <div class="field">
         <label>Кто ведёт рекламу</label>
-        <select name="ad_who">
-          <option value="">Выберите</option>
-          <option>Сами</option>
-          <option>Подрядчик / фрилансер</option>
-          <option>Агентство</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="ad_who" value="Сами"><span>Сами</span></label><label class="chk"><input type="radio" name="ad_who" value="Подрядчик / фрилансер"><span>Подрядчик / фрилансер</span></label><label class="chk"><input type="radio" name="ad_who" value="Агентство"><span>Агентство</span></label></div>
       </div>
     </div>
     <div class="field">
@@ -306,14 +260,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
     </div>
     <div class="field">
       <label>Что сейчас считается «результатом» рекламы для вас?</label>
-      <select name="ad_goal">
-        <option value="">Выберите</option>
-        <option>Сообщения в директ</option>
-        <option>Подписчики</option>
-        <option>Записи на занятие</option>
-        <option>Купленные абонементы</option>
-        <option>Не формулировали</option>
-      </select>
+      <div class="checks"><label class="chk"><input type="radio" name="ad_goal" value="Сообщения в директ"><span>Сообщения в директ</span></label><label class="chk"><input type="radio" name="ad_goal" value="Подписчики"><span>Подписчики</span></label><label class="chk"><input type="radio" name="ad_goal" value="Записи на занятие"><span>Записи на занятие</span></label><label class="chk"><input type="radio" name="ad_goal" value="Купленные абонементы"><span>Купленные абонементы</span></label><label class="chk"><input type="radio" name="ad_goal" value="Не формулировали"><span>Не формулировали</span></label></div>
     </div>
   </div>
 </div>
@@ -349,14 +296,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
       </div>
       <div class="field">
         <label>Какая доля гостей пользуется приложением</label>
-        <select name="app_share">
-          <option value="">Выберите</option>
-          <option>почти все</option>
-          <option>больше половины</option>
-          <option>меньше половины</option>
-          <option>единицы</option>
-          <option>не знаем</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="app_share" value="почти все"><span>почти все</span></label><label class="chk"><input type="radio" name="app_share" value="больше половины"><span>больше половины</span></label><label class="chk"><input type="radio" name="app_share" value="меньше половины"><span>меньше половины</span></label><label class="chk"><input type="radio" name="app_share" value="единицы"><span>единицы</span></label><label class="chk"><input type="radio" name="app_share" value="не знаем"><span>не знаем</span></label></div>
       </div>
     </div>
     <div class="field">
@@ -365,12 +305,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
     </div>
     <div class="field">
       <label>Android-приложение: ссылка с сайта ведёт на несуществующую страницу Google Play. Это известная проблема?</label>
-      <select name="android_status">
-        <option value="">Выберите</option>
-        <option>Приложение для Android есть, ссылка просто устарела</option>
-        <option>Android-версии нет, гости регистрируются на сайте</option>
-        <option>Впервые слышим</option>
-      </select>
+      <div class="checks"><label class="chk"><input type="radio" name="android_status" value="Приложение для Android есть, ссылка просто устарела"><span>Приложение для Android есть, ссылка просто устарела</span></label><label class="chk"><input type="radio" name="android_status" value="Android-версии нет, гости регистрируются на сайте"><span>Android-версии нет, гости регистрируются на сайте</span></label><label class="chk"><input type="radio" name="android_status" value="Впервые слышим"><span>Впервые слышим</span></label></div>
     </div>
     <div class="field">
       <label>Что ещё используете для учёта и связи?</label>
@@ -402,27 +337,13 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
       </div>
       <div class="field">
         <label>Из них покупают абонемент после первого визита</label>
-        <select name="trial_to_sub">
-          <option value="">Выберите</option>
-          <option>меньше 20%</option>
-          <option>20–40%</option>
-          <option>40–60%</option>
-          <option>больше 60%</option>
-          <option>не считаем</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="trial_to_sub" value="меньше 20%"><span>меньше 20%</span></label><label class="chk"><input type="radio" name="trial_to_sub" value="20–40%"><span>20–40%</span></label><label class="chk"><input type="radio" name="trial_to_sub" value="40–60%"><span>40–60%</span></label><label class="chk"><input type="radio" name="trial_to_sub" value="больше 60%"><span>больше 60%</span></label><label class="chk"><input type="radio" name="trial_to_sub" value="не считаем"><span>не считаем</span></label></div>
       </div>
     </div>
     <div class="row">
       <div class="field">
         <label>Продлевают абонемент после окончания</label>
-        <select name="renewal">
-          <option value="">Выберите</option>
-          <option>меньше трети</option>
-          <option>примерно треть</option>
-          <option>примерно половина</option>
-          <option>больше половины</option>
-          <option>не считаем</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="renewal" value="меньше трети"><span>меньше трети</span></label><label class="chk"><input type="radio" name="renewal" value="примерно треть"><span>примерно треть</span></label><label class="chk"><input type="radio" name="renewal" value="примерно половина"><span>примерно половина</span></label><label class="chk"><input type="radio" name="renewal" value="больше половины"><span>больше половины</span></label><label class="chk"><input type="radio" name="renewal" value="не считаем"><span>не считаем</span></label></div>
       </div>
       <div class="field">
         <label>Сколько абонементов заканчивается в неделю</label>
@@ -452,7 +373,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   <h2>Что болит</h2>
   <div class="card">
     <div class="field">
-      <label>Выберите не больше трёх <span class="req">*</span></label>
+      <label>Выберите не больше трёх</label>
       <div class="checks">
         <label class="chk"><input type="checkbox" name="pain" value="Не успеваем отвечать в директе"><span>Не успеваем отвечать</span></label>
         <label class="chk"><input type="checkbox" name="pain" value="Отвечаем, но люди не доходят до студии"><span>Отвечаем, но не доходят</span></label>
@@ -530,12 +451,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
       </div>
       <div class="field">
         <label>Когда хотите запустить первое изменение?</label>
-        <select name="timeline">
-          <option value="">Выберите</option>
-          <option>На этой неделе</option>
-          <option>В течение месяца</option>
-          <option>Сначала посмотреть предложение</option>
-        </select>
+        <div class="checks"><label class="chk"><input type="radio" name="timeline" value="На этой неделе"><span>На этой неделе</span></label><label class="chk"><input type="radio" name="timeline" value="В течение месяца"><span>В течение месяца</span></label><label class="chk"><input type="radio" name="timeline" value="Сначала посмотреть предложение"><span>Сначала посмотреть предложение</span></label></div>
       </div>
     </div>
     <div class="field">
@@ -547,7 +463,8 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
 
 <div class="submit-area">
   <button type="button" class="btn-submit" onclick="sendBrief()">Отправить бриф</button>
-  <div class="hint">Ответы уходят напрямую Эмилю в LandingPro. Если что-то не вспомнили — отправляйте как есть, дополним на созвоне.</div>
+  <div class="hint">Обязательны только имя и контакт. Не вспомнили — пропускайте, дополним на созвоне. Ответы уходят напрямую Эмилю в LandingPro.</div>
+  <div class="hint" id="draftNote">Ответы сохраняются на этом устройстве по мере заполнения — можно закрыть и вернуться позже</div>
 </div>
 </form>
 
@@ -582,12 +499,52 @@ var LABELS={
 };
 var SECTIONS={contact_name:'━━ КТО ━━',channels:'\n━━ ОБРАЩЕНИЯ ━━',ad_budget:'\n━━ РЕКЛАМА ━━',auto_on:'\n━━ MOBIFITNESS / АВТОМАТИКА ━━',new_guests:'\n━━ ЦИФРЫ ━━',pain:'\n━━ БОЛИ ━━',access_ready:'\n━━ ДОСТУПЫ ━━'};
 
+
+/* draft autosave — answers survive closing the tab on this device */
+var DRAFT_KEY='proyoga_brief_draft';
+function saveDraft(){
+  try{
+    var form=document.getElementById('briefForm'),d={};
+    Array.prototype.forEach.call(form.elements,function(el){
+      if(!el.name||el.name.charAt(0)==='_')return;
+      if(el.type==='checkbox'||el.type==='radio'){if(el.checked){(d[el.name]=d[el.name]||[]).push(el.value);}}
+      else if(el.value){d[el.name]=el.value;}
+    });
+    localStorage.setItem(DRAFT_KEY,JSON.stringify(d));
+    var t=document.getElementById('draftNote');if(t){t.textContent='Черновик сохранён '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})+' — можно закрыть и вернуться позже';}
+  }catch(e){}
+}
+function restoreDraft(){
+  try{
+    var raw=localStorage.getItem(DRAFT_KEY);if(!raw)return;
+    var d=JSON.parse(raw),form=document.getElementById('briefForm'),n=0;
+    Array.prototype.forEach.call(form.elements,function(el){
+      if(!el.name||!(el.name in d))return;
+      if(el.type==='checkbox'||el.type==='radio'){if(d[el.name].indexOf(el.value)>-1){el.checked=true;n++;}}
+      else{el.value=d[el.name];n++;}
+    });
+    var t=document.getElementById('draftNote');if(t&&n){t.textContent='Восстановили ваши ответы с прошлого раза';}
+  }catch(e){}
+}
+function clearDraft(){try{localStorage.removeItem(DRAFT_KEY)}catch(e){}}
+(function(){
+  var form=document.getElementById('briefForm');if(!form)return;
+  restoreDraft();
+  var timer;
+  form.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(saveDraft,400)});
+  form.addEventListener('change',saveDraft);
+})();
+
 function collectData(){
   var form=document.getElementById('briefForm');
   var data={};
   var order=[];
   Array.prototype.forEach.call(form.elements,function(el){
     if(!el.name||el.name.charAt(0)==='_')return;
+    if(el.type==='radio'){
+      if(!el.checked)return;
+      data[el.name]=el.value;order.push(el.name);return;
+    }
     if(el.type==='checkbox'){
       if(!el.checked)return;
       if(!data[el.name]){data[el.name]=[];order.push(el.name);}
@@ -613,11 +570,11 @@ function formatMessage(c){
 function sendBrief(){
   var c=collectData();
   var d=c.data;
-  if(!d.contact_name||!d.phone||!d.role||!d.who_answers||!d.dm_per_week||!d.channels||!d.pain){
-    alert('Заполните обязательные поля: имя, роль, контакт, каналы обращений, объём в директ, кто отвечает, боли');
+  if(!d.contact_name||!d.phone){
+    alert('Нужны только имя и контакт — остальное можно оставить пустым');
     return;
   }
-  if(d.pain.length>3){alert('В разделе «Что болит» выберите не больше трёх пунктов');return;}
+  if(d.pain&&d.pain.length>3){alert('В разделе «Что болит» выберите не больше трёх пунктов');return;}
   var btn=document.querySelector('.btn-submit');
   btn.textContent='Отправляем...';btn.disabled=true;btn.style.opacity='.6';
 
@@ -626,7 +583,7 @@ function sendBrief(){
 
   var done=false;
   function finish(){
-    if(done)return;done=true;
+    if(done)return;done=true;clearDraft();
     try{ym(106991612,'reachGoal','submit_brief')}catch(e){}
     document.getElementById('briefForm').style.display='none';
     document.getElementById('success').style.display='block';
