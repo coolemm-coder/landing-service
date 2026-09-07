@@ -115,11 +115,7 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   </ul>
 </div>
 
-<form id="briefForm" action="https://formsubmit.co/ecoprofit.em@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Бриф ProYoga — LandingPro.by">
-<input type="hidden" name="_next" value="https://landingpro.by/brief-proyoga.html?sent=1">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
+<form id="briefForm" onsubmit="return false">
 
 <!-- 1 -->
 <div class="sec">
@@ -466,6 +462,15 @@ select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:u
   <div class="hint">Обязательны только имя и контакт. Не вспомнили — пропускайте, дополним на созвоне. Ответы уходят напрямую Эмилю в LandingPro.</div>
   <div class="hint" id="draftNote">Ответы сохраняются на этом устройстве по мере заполнения — можно закрыть и вернуться позже</div>
 </div>
+<div id="fallback" style="display:none;margin-top:24px" class="card">
+  <h3 style="font-size:16px;margin-bottom:8px">Не удалось отправить автоматически</h3>
+  <p class="hint" style="margin-bottom:10px">Ваши ответы не потеряны — они сохранены на этом устройстве. Скопируйте текст ниже и отправьте его в Telegram: <a href="https://t.me/landingproby_bot">@landingproby_bot</a> или Эмилю напрямую. Либо попробуйте кнопку «Отправить» ещё раз через минуту.</p>
+  <textarea id="fallbackText" rows="8" readonly style="font-size:13px"></textarea>
+  <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+    <button type="button" class="btn-submit" id="copyBtn" onclick="copyFallback()" style="padding:10px 20px;font-size:14px">Скопировать ответы</button>
+    <a class="btn-submit" href="https://t.me/landingproby_bot" style="padding:10px 20px;font-size:14px;text-decoration:none;display:inline-block">Открыть @landingproby_bot</a>
+  </div>
+</div>
 </form>
 
 <div id="success">
@@ -593,13 +598,19 @@ function sendBrief(){
     method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
   }).then(function(r){if(!r.ok)throw new Error(r.status);finish();})
   .catch(function(){
-    /* webhook unreachable — fall back to the formsubmit channel */
-    var form=document.getElementById('briefForm');
-    var hidden=document.createElement('input');
-    hidden.type='hidden';hidden.name='brief_text';hidden.value=text;
-    form.appendChild(hidden);
-    form.submit();
+    /* webhook unreachable — keep the draft, show the answers and a manual way to deliver them */
+    btn.textContent='Отправить бриф';btn.disabled=false;btn.style.opacity='1';
+    var box=document.getElementById('fallback');
+    document.getElementById('fallbackText').value=text;
+    box.style.display='block';
+    box.scrollIntoView({behavior:'smooth',block:'start'});
   });
+}
+function copyFallback(){
+  var ta=document.getElementById('fallbackText');ta.select();
+  try{document.execCommand('copy');}catch(e){}
+  if(navigator.clipboard){navigator.clipboard.writeText(ta.value).catch(function(){});}
+  var b=document.getElementById('copyBtn');b.textContent='Скопировано';setTimeout(function(){b.textContent='Скопировать ответы'},2000);
 }
 
 if(window.location.search.indexOf('sent=1')!==-1){
